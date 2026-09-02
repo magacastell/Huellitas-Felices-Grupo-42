@@ -1,0 +1,420 @@
+/* ========================================
+   HUELLITAS FELICES
+   Estilos generales del sitio
+======================================== */
+
+
+/* ---------- VARIABLES ---------- */
+
+:root {
+    /* Colores principales */
+    --color-violeta: #76558F;
+    --color-lila: #C9A7DC;
+
+    --color-verde-agua: #67C5C3;
+    --color-turquesa: #2B9FA3;
+    --color-verde-oscuro: #176B6D;
+
+    /* Fondos */
+    --color-fondo: #FAF8F3;
+    --color-blanco: #FFFFFF;
+
+    /* Textos */
+    --color-texto: #342D3D;
+    --color-texto-secundario: #6F6875;
+
+    /* Otros */
+    --radio-borde: 12px;
+}
+
+
+/* ---------- RESET BÁSICO ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ---------- ESTILOS GENERALES ---------- */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+
+/* Evita que las imágenes se desborden */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* Contenedor general para mantener
+   el contenido centrado */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* ---------- TÍTULOS Y TEXTOS ---------- */
+
+h1,
+h2,
+h3 {
+    color: var(--color-texto);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    color: var(--color-texto-secundario);
+}
+
+
+/* Para destacar palabras dentro de títulos */
+
+.texto-violeta {
+    color: var(--color-violeta);
+}
+
+.texto-turquesa {
+    color: var(--color-turquesa);
+}
+
+
+/* ---------- HEADER ---------- */
+
+header {
+    background-color: var(--color-blanco);
+    border-bottom: 1px solid #eeeeee;
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 0;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.logo img {
+    width: 50px;
+}
+
+.logo-nombre {
+    color: var(--color-violeta);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* ---------- NAVEGACIÓN ---------- */
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--color-violeta);
+}
+
+
+/* Página seleccionada */
+
+nav a.activo {
+    color: var(--color-violeta);
+}
+
+
+/* ---------- BOTONES ---------- */
+
+.btn {
+    display: inline-block;
+
+    padding: 0.75rem 1.3rem;
+
+    border: none;
+    border-radius: var(--radio-borde);
+
+    text-decoration: none;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* Botón principal */
+
+.btn-primary {
+    background-color: var(--color-violeta);
+    color: var(--color-blanco);
+}
+
+.btn-primary:hover {
+    background-color: #634579;
+}
+
+
+/* Botón secundario */
+
+.btn-secondary {
+    background-color: var(--color-turquesa);
+    color: var(--color-blanco);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-verde-oscuro);
+}
+
+
+/* Botón más simple */
+
+.btn-outline {
+    background-color: transparent;
+
+    color: var(--color-violeta);
+
+    border: 2px solid var(--color-violeta);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-violeta);
+    color: var(--color-blanco);
+}
+
+
+/* ---------- SECCIONES ---------- */
+
+section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+/* Fondo alternativo para algunas secciones */
+
+.section-light {
+    background-color: var(--color-blanco);
+}
+
+.section-lila {
+    background-color: #F4EDF8;
+}
+
+.section-verde {
+    background-color: #EAF7F6;
+}
+
+
+/* ---------- CARDS ---------- */
+
+.card {
+    background-color: var(--color-blanco);
+
+    border: 1px solid #eeeeee;
+    border-radius: var(--radio-borde);
+
+    padding: 1.5rem;
+}
+
+
+/* Grilla reutilizable */
+
+.cards-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 1.5rem;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+    padding: 5rem 0;
+}
+
+.hero-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4rem;
+}
+
+.hero-texto,
+.hero-imagen {
+    flex: 1;
+}
+
+.hero-texto p {
+    margin: 1.5rem 0;
+}
+
+.hero-imagen img {
+    border-radius: var(--radio-borde);
+}
+
+
+/* ---------- FORMULARIOS ---------- */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 0.8rem;
+
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--color-lila);
+    border-color: var(--color-violeta);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background-color: var(--color-texto);
+
+    color: var(--color-blanco);
+
+    padding: 3rem 0;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 2rem;
+}
+
+footer h3 {
+    color: var(--color-blanco);
+}
+
+footer p,
+footer a {
+    color: #e8e3eb;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--color-verde-agua);
+}
+
+
+/* ---------- RESPONSIVE BÁSICO ---------- */
+
+@media (max-width: 768px) {
+
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+}
