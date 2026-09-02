@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Huellitas Felices</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         HEADER Y NAVEGACIÓN
+    =============================== -->
+
+    <header>
+
+        <div class="header-container">
+
+            <div class="logo">
+                <img src="img/logo-huellitas-felices.png" alt="Logo de Huellitas Felices">
+                <span class="logo-nombre">Huellitas Felices</span>
+            </div>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+
+                    <li>
+                        <a href="institucional.html">Nosotros</a>
+                    </li>
+
+                    <li>
+                        <a href="contacto.html" class="activo">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         CONTENIDO PRINCIPAL
+    =============================== -->
+
+    <main>
+
+        <!-- Presentación de contacto -->
+
+        <section class="hero section-lila">
+
+            <div class="container">
+
+                <div class="hero-texto">
+
+                    <h1>
+                        Estamos a tu disposición para
+                        <span class="texto-violeta">cuidar a tu mascota</span>
+                    </h1>
+
+                    <p>
+                        Acercate a nuestra veterinaria en Concordia o
+                        envianos un mensaje a través de nuestro formulario.
+                        Estamos para acompañarte en cada etapa del cuidado
+                        de tu compañero.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             DATOS + FORMULARIO
+        =============================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="cards-container">
+
+                    <!-- Datos de contacto -->
+
+                    <article class="card">
+
+                        <h2>Datos de contacto</h2>
+
+                        <p>
+                            Podés comunicarte con nosotros por teléfono,
+                            visitarnos en nuestra veterinaria o escribirnos
+                            por correo electrónico.
+                        </p>
+
+                        <br>
+
+                        <h3>Horarios de atención</h3>
+
+                        <p>
+                            <strong>Lunes a viernes:</strong><br>
+                            08:00 a 20:00 hs.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            <strong>Sábados:</strong><br>
+                            09:00 a 13:00 hs.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            <strong>Domingos y feriados:</strong><br>
+                            Guardias programadas.
+                        </p>
+
+                        <br>
+
+                        <h3>Dirección</h3>
+
+                        <p>
+                            Av. Los Cedros 1450, Barrio Jardín,
+                            Concordia, Entre Ríos.
+                        </p>
+
+                        <br>
+
+                        <h3>Teléfono</h3>
+
+                        <p>
+                            <a href="tel:+543456124700">
+                                +54 9 345 612-4700
+                            </a>
+                        </p>
+
+                        <br>
+
+                        <h3>Correo electrónico</h3>
+
+                        <p>
+                            <a href="mailto:hola@huellitasfelices.com">
+                                hola@huellitasfelices.com
+                            </a>
+                        </p>
+
+                    </article>
+
+
+                    <!-- Formulario -->
+
+                    <article class="card">
+
+                        <h2>Envíanos tu consulta</h2>
+
+                        <p>
+                            Completá el formulario y nos pondremos
+                            en contacto con vos.
+                        </p>
+
+                        <br>
+
+                        <form action="#" method="post">
+
+                            <div>
+                                <label for="nombre">
+                                    Nombre y apellido
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nombre"
+                                    name="nombre"
+                                    placeholder="Ingresá tu nombre y apellido"
+                                    required
+                                >
+                            </div>
+
+
+                            <div>
+                                <label for="email">
+                                    Correo electrónico
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="ejemplo@email.com"
+                                    required
+                                >
+                            </div>
+
+
+                            <div>
+                                <label for="telefono">
+                                    Teléfono
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="telefono"
+                                    name="telefono"
+                                    placeholder="Ej. 345 612-4700"
+                                >
+                            </div>
+
+
+                            <div>
+                                <label for="motivo">
+                                    Motivo de consulta
+                                </label>
+
+                                <select id="motivo" name="motivo" required>
+
+                                    <option value="">
+                                        Seleccioná un motivo
+                                    </option>
+
+                                    <option value="consulta-general">
+                                        Consulta general
+                                    </option>
+
+                                    <option value="turno">
+                                        Solicitud de turno
+                                    </option>
+
+                                    <option value="vacunacion">
+                                        Vacunación
+                                    </option>
+
+                                    <option value="cirugia">
+                                        Cirugía o esterilización
+                                    </option>
+
+                                    <option value="peluqueria">
+                                        Peluquería
+                                    </option>
+
+                                    <option value="otro">
+                                        Otro motivo
+                                    </option>
+
+                                </select>
+                            </div>
+
+
+                            <div>
+                                <label for="mensaje">
+                                    Mensaje
+                                </label>
+
+                                <textarea
+                                    id="mensaje"
+                                    name="mensaje"
+                                    placeholder="Contanos en qué podemos ayudarte..."
+                                    required
+                                ></textarea>
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                            >
+                                Enviar mensaje
+                            </button>
+
+                        </form>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             REDES SOCIALES
+        =============================== -->
+
+        <section class="section-light">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        Nuestras
+                        <span class="texto-violeta">
+                            Redes Sociales
+                        </span>
+                    </h2>
+
+                    <p>
+                        Sumate a nuestra comunidad digital.
+                        Compartimos consejos, novedades y
+                        momentos especiales de nuestros pacientes.
+                    </p>
+
+                </div>
+
+
+                <div class="cards-container">
+
+                    <article class="card">
+
+                        <h3>Instagram</h3>
+
+                        <p>
+                            Seguinos en Instagram para conocer
+                            nuestras novedades y consejos para
+                            el cuidado de tu mascota.
+                        </p>
+
+                        <br>
+
+                        <a
+                            href="https://www.instagram.com/huellitasfelicesvet/"
+                            class="btn btn-secondary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            @huellitasfelicesvet
+                        </a>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <h3>Facebook</h3>
+
+                        <p>
+                            Encontranos en Facebook y formá parte
+                            de nuestra comunidad de familias
+                            amantes de los animales.
+                        </p>
+
+                        <br>
+
+                        <a
+                            href="https://www.facebook.com/HuellitasFelices"
+                            class="btn btn-secondary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Huellitas Felices
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             UBICACIÓN
+        =============================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>Encontranos en Concordia</h2>
+
+                    <p>
+                        Visitá nuestra clínica veterinaria.
+                        Estamos ubicados en Barrio Jardín.
+                    </p>
+
+                </div>
+
+
+                <article class="card">
+
+                    <h3>Ubicación de la clínica veterinaria</h3>
+
+                    <p>
+                        Av. Los Cedros 1450, Barrio Jardín,
+                        Concordia, Entre Ríos.
+                    </p>
+
+                    <br>
+
+                    <!-- Mapa de referencia -->
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Concordia,+Entre+Rios&output=embed"
+                        width="100%"
+                        height="350"
+                        loading="lazy"
+                        title="Mapa de ubicación de Huellitas Felices"
+                    >
+                    </iframe>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <!-- Información -->
+
+            <div>
+
+                <h3>Huellitas Felices</h3>
+
+                <p>
+                    Veterinaria y cuidado animal.
+                    Cuidamos a cada mascota con compromiso,
+                    cariño y dedicación.
+                </p>
+
+            </div>
+
+
+            <!-- Navegación -->
+
+            <div>
+
+                <h3>Navegación</h3>
+
+                <p>
+                    <a href="index.html">Inicio</a>
+                </p>
+
+                <p>
+                    <a href="institucional.html">Nosotros</a>
+                </p>
+
+                <p>
+                    <a href="contacto.html">Contacto</a>
+                </p>
+
+            </div>
+
+
+            <!-- Horarios -->
+
+            <div>
+
+                <h3>Horarios de atención</h3>
+
+                <p>
+                    Lunes a viernes:<br>
+                    08:00 a 20:00 hs.
+                </p>
+
+                <p>
+                    Sábados:<br>
+                    09:00 a 13:00 hs.
+                </p>
+
+                <p>
+                    Domingos y feriados:<br>
+                    Guardias programadas.
+                </p>
+
+            </div>
+
+
+            <!-- Contacto -->
+
+            <div>
+
+                <h3>Contacto</h3>
+
+                <p>
+                    Av. Los Cedros 1450
+                </p>
+
+                <p>
+                    +54 9 345 612-4700
+                </p>
+
+                <p>
+                    <a href="mailto:hola@huellitasfelices.com">
+                        hola@huellitasfelices.com
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
