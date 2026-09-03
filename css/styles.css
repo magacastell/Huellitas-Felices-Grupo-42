@@ -305,6 +305,9 @@ section {
 }
 
 .hero-imagen img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
     border-radius: var(--radio-borde);
 }
 
@@ -416,5 +419,14 @@ footer a:hover {
     h2 {
         font-size: 1.6rem;
     }
-
+}
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.8rem;
+    background-color: var(--color-blanco);
+    color: var(--color-violeta);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
 }
