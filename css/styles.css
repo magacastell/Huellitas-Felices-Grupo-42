@@ -430,3 +430,32 @@ footer a:hover {
     font-size: 0.85rem;
     font-weight: bold;
 }
+.hero-nosotros{
+    min-height: 500px;
+    background-image: url(../assets/images/medium-shot-smiley-doctor-checking-dog.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 0;
+}
+.hero-overlay{
+    min-height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(52, 45, 61, 0.55)
+}
+.hero-nosotros .hero-texto{
+    max-width: 650px;
+}
+.hero-nosotros h1{
+    color: var(--color-blanco);
+    font-size: 3rem;
+}
+.hero-nosotros .hero-texto p{
+    color: var(--color-blanco);
+    font-size: 1.1rem;
+}
+.hero-nosotros .texto-violeta{
+    color: var(--color-lila);
+}
