@@ -45,7 +45,43 @@ body {
     color: var(--color-texto);
     line-height: 1.6;
 }
+.barra-superior {
+    background-color: var(--color-lila);
+    color: var(--color-verde-oscuro);
+}
 
+.barra-superior-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.barra-info {
+    display: contents;
+}
+
+.barra-info span:first-child {
+    grid-column: 1;
+    justify-self: start;
+    white-space: nowrap;
+}
+
+.barra-info span:nth-child(2) {
+    grid-column: 2;
+    justify-self: center;
+    white-space: nowrap;
+}
+
+.barra-telefono {
+    grid-column: 3;
+    justify-self: end;
+    white-space: nowrap;
+}
+
+.barra-telefono a {
+    color: inherit;
+    text-decoration: none;
+}
 
 /* Evita que las imágenes se desborden */
 
@@ -225,7 +261,24 @@ nav a.activo {
     background-color: var(--color-violeta);
     color: var(--color-blanco);
 }
+/*Boton prueba*/
+.btn-prueba {
+    background-color: var(--color-lila);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
+    padding: 0.75rem 1.3rem;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
 
+.btn-prueba:hover {
+    transform: scale(1.03);
+    color: var(--color-texto);
+    box-shadow: 0 6px 15px rgba(52, 45, 61, 0.18);
+}
 
 /* ---------- SECCIONES ---------- */
 
@@ -305,6 +358,9 @@ section {
 }
 
 .hero-imagen img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
     border-radius: var(--radio-borde);
 }
 
@@ -384,8 +440,301 @@ footer a {
 footer a:hover {
     color: var(--color-verde-agua);
 }
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.8rem;
+    background-color: var(--color-blanco);
+    color: var(--color-violeta);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+.hero-nosotros{
+    min-height: 500px;
+    background-image: url(../assets/images/medium-shot-smiley-doctor-checking-dog.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 0;
+}
+.hero-overlay{
+    min-height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(52, 45, 61, 0.55)
+}
+.hero-nosotros .hero-texto{
+    max-width: 650px;
+}
+.hero-nosotros h1{
+    color: var(--color-blanco);
+    font-size: 3rem;
+}
+.hero-nosotros .hero-texto p{
+    color: var(--color-blanco);
+    font-size: 1.1rem;
+}
+.hero-nosotros .texto-violeta{
+    color: var(--color-lila);
+}
+/*QUIENES SOMOS*/
+.quienes-somos{
+    padding: 5rem 0;
+}
+.quienes-somos .section-title{
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+.quienes-somos .section-title .hero-badge{
+    margin-bottom: 1rem;
+}
+.quienes-somos-contenido{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.quienes-somos-texto h3{
+    color: var(--color-violeta);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.quienes-somos-texto p{
+    margin-bottom: 1rem;
+}
 
+/*CARACTERISTICAS*/
+.caracteristicas{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-top: 3rem;
+}
+.caracteristica{
+    background-color: #F4EDF8;
+    padding: 1.5rem;
+    border-radius:var(--radio-borde);
+    border: 1px solid #eadff0
+}
+.caracteristica h3{
+    color: var(--color-violeta);
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+}
+.caracteristica p {
+    font-size: 0.9rem;
+}
+.caracteristica span{
+    color: var(--color-turquesa);
+    font-weight: bold;
+}
+/* ---------- GALERÍA QUIÉNES SOMOS ---------- */
 
+.quienes-somos-galeria {
+    width: 100%;
+}
+
+.imagen-principal {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radio-borde);
+}
+
+.imagen-principal img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: var(--radio-borde);
+}
+
+.imagen-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(transparent, rgba(52, 45, 61, 0.85));
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.imagen-overlay strong {
+    color: var(--color-verde-agua);
+    font-size: 0.95rem;
+}
+
+.imagen-overlay span {
+    color: var(--color-blanco);
+    font-size: 0.9rem;
+}
+
+.imagenes-secundarias {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.imagenes-secundarias img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: var(--radio-borde);
+}
+/*MISION */
+.seccion-encabezado{
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 3rem;
+}
+.seccion-encabezado h2{
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+.seccion-encabezado p{
+    color: var(--color-texto-secundario);
+}
+.mision-vision-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+.mision-vision-card {
+    background-color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 6px 18px rgba(52, 45, 61, 0.08);
+    border: 1px solid var(--color-verde-oscuro);
+}
+.mision-vision-card:hover{
+    transform: scale(1.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mision-vision-card h3{
+    color: var(--color-violeta);
+    margin-bottom: 1rem;
+}
+.mision-vision-card p{
+    color: var(--color-texto-secundario);
+    line-height: 1.7;
+}
+.mision-vision-card ul{
+    padding-left: 1.2rem;
+    margin: 0;
+}
+.mision-vision-card li{
+    margin-bottom: 0.7rem;
+    color: var(--color-texto-secundario);
+}
+/*SERVICIOSSSS*/
+.servicios-encabezado{
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 3rem;
+}
+.servicios-encabezado h2{
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+.servicios-encabezado p{
+    color: var(--color-texto-secundario);
+}
+.servicios-grid{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0, 1fr));
+    gap: 1.5rem;
+}
+.servicio-card{
+    background-color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    border: 1px solid var(--color-verde-oscuro);
+    box-shadow: 0 6px 18px rgba(52, 45, 61, 0.08);
+    position: relative;
+}
+.servicio-card:hover{
+    transform: scale(1.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.servicio-icono{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-lila);
+    color: var(--color-verde-oscuro);
+    border-radius: 20px;
+    margin-top: 0.75rem;
+    margin-bottom: 1.2rem;
+}
+.servicio-icono svg {
+    width: 24px;
+    height: 24px;
+}
+.servicio-card h3 {
+    margin-bottom: 0.7rem;
+}
+.servicio-card p {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+    margin: 0;
+}
+.servicio-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: var(--radio-borde);
+}
+.servicio-badge{
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    background-color: var(--color-blanco);
+    color: var(--color-violeta);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(52, 45, 61, 0.15);
+}
+.servicio-lista {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+.servicio-lista svg{
+    color: var(--color-verde-oscuro);
+    flex-shrink: 0;
+}
+.servicio-lista li{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+/*CTA--------------*/
+.cta{
+    background: linear-gradient(135deg, var(--color-violeta), var(--color-verde-oscuro));  /*Esto lo podemosreutilizar si quierenn*/  
+    color: var(--color-blanco);
+}
+.cta-contenido{
+    text-align: center;
+    max-width: 800px;
+}
+.cta-texto h2{
+    color: var(--color-blanco);
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+.cta-texto p{
+    color: var(--color-blanco);
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
 /* ---------- RESPONSIVE BÁSICO ---------- */
 
 @media (max-width: 768px) {
@@ -416,5 +765,58 @@ footer a:hover {
     h2 {
         font-size: 1.6rem;
     }
+    .hero-nosotros h1 {
+        font-size: 2rem;
+    }
 
+    .quienes-somos-contenido {
+        display: flex;
+        flex-direction: column;
+    }
+    .imagen-principal img{
+        height: 280px;
+    }
+    .imagenes-secundarias img{
+        height: 120px;
+    }
+    .caracteristicas {
+        display: flex;
+        flex-direction: column;
+    }
+        .barra-superior-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .barra-info span:first-child {
+        grid-column: 1 / 3;
+        justify-self: center;
+        font-size: 0.8rem;
+    }
+
+    .barra-info span:nth-child(2) {
+        grid-column: 1;
+        justify-self: start;
+        font-size: 0.75rem;
+    }
+    .mision-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .barra-telefono {
+        grid-column: 2;
+        justify-self: end;
+        font-size: 0.8rem;
+    }
+    .servicios-grid{
+        grid-template-columns: 1fr;
+    }
+    .servicio-card{
+        padding: 1.5rem;
+    }
+    .servicios-encabezado{
+        margin-bottom: 2rem;
+    }
 }
