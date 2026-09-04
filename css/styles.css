@@ -629,6 +629,112 @@ footer a:hover {
     margin-bottom: 0.7rem;
     color: var(--color-texto-secundario);
 }
+/*SERVICIOSSSS*/
+.servicios-encabezado{
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 3rem;
+}
+.servicios-encabezado h2{
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+.servicios-encabezado p{
+    color: var(--color-texto-secundario);
+}
+.servicios-grid{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0, 1fr));
+    gap: 1.5rem;
+}
+.servicio-card{
+    background-color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    border: 1px solid var(--color-verde-oscuro);
+    box-shadow: 0 6px 18px rgba(52, 45, 61, 0.08);
+    position: relative;
+}
+.servicio-card:hover{
+    transform: scale(1.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.servicio-icono{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-lila);
+    color: var(--color-verde-oscuro);
+    border-radius: 20px;
+    margin-top: 0.75rem;
+    margin-bottom: 1.2rem;
+}
+.servicio-icono svg {
+    width: 24px;
+    height: 24px;
+}
+.servicio-card h3 {
+    margin-bottom: 0.7rem;
+}
+.servicio-card p {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+    margin: 0;
+}
+.servicio-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: var(--radio-borde);
+}
+.servicio-badge{
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    background-color: var(--color-blanco);
+    color: var(--color-violeta);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(52, 45, 61, 0.15);
+}
+.servicio-lista {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+.servicio-lista svg{
+    color: var(--color-verde-oscuro);
+    flex-shrink: 0;
+}
+.servicio-lista li{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+/*CTA--------------*/
+.cta{
+    background: linear-gradient(135deg, var(--color-violeta), var(--color-verde-oscuro));  /*Esto lo podemosreutilizar si quierenn*/  
+    color: var(--color-blanco);
+}
+.cta-contenido{
+    text-align: center;
+    max-width: 800px;
+}
+.cta-texto h2{
+    color: var(--color-blanco);
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+.cta-texto p{
+    color: var(--color-blanco);
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
 /* ---------- RESPONSIVE BÁSICO ---------- */
 
 @media (max-width: 768px) {
@@ -695,10 +801,22 @@ footer a:hover {
         justify-self: start;
         font-size: 0.75rem;
     }
-
+    .mision-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
     .barra-telefono {
         grid-column: 2;
         justify-self: end;
         font-size: 0.8rem;
+    }
+    .servicios-grid{
+        grid-template-columns: 1fr;
+    }
+    .servicio-card{
+        padding: 1.5rem;
+    }
+    .servicios-encabezado{
+        margin-bottom: 2rem;
     }
 }
