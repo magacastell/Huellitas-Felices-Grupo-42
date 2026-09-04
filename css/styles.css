@@ -45,7 +45,43 @@ body {
     color: var(--color-texto);
     line-height: 1.6;
 }
+.barra-superior {
+    background-color: var(--color-lila);
+    color: var(--color-verde-oscuro);
+}
 
+.barra-superior-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.barra-info {
+    display: contents;
+}
+
+.barra-info span:first-child {
+    grid-column: 1;
+    justify-self: start;
+    white-space: nowrap;
+}
+
+.barra-info span:nth-child(2) {
+    grid-column: 2;
+    justify-self: center;
+    white-space: nowrap;
+}
+
+.barra-telefono {
+    grid-column: 3;
+    justify-self: end;
+    white-space: nowrap;
+}
+
+.barra-telefono a {
+    color: inherit;
+    text-decoration: none;
+}
 
 /* Evita que las imágenes se desborden */
 
@@ -225,7 +261,24 @@ nav a.activo {
     background-color: var(--color-violeta);
     color: var(--color-blanco);
 }
+/*Boton prueba*/
+.btn-prueba {
+    background-color: var(--color-lila);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
+    padding: 0.75rem 1.3rem;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
 
+.btn-prueba:hover {
+    transform: scale(1.03);
+    color: var(--color-texto);
+    box-shadow: 0 6px 15px rgba(52, 45, 61, 0.18);
+}
 
 /* ---------- SECCIONES ---------- */
 
@@ -501,14 +554,8 @@ footer a:hover {
     bottom: 0;
     left: 0;
     width: 100%;
-
     padding: 1.2rem;
-
-    background: linear-gradient(
-        transparent,
-        rgba(52, 45, 61, 0.85)
-    );
-
+    background: linear-gradient(transparent, rgba(52, 45, 61, 0.85));
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
@@ -536,6 +583,51 @@ footer a:hover {
     height: 140px;
     object-fit: cover;
     border-radius: var(--radio-borde);
+}
+/*MISION */
+.seccion-encabezado{
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 3rem;
+}
+.seccion-encabezado h2{
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+.seccion-encabezado p{
+    color: var(--color-texto-secundario);
+}
+.mision-vision-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+.mision-vision-card {
+    background-color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 6px 18px rgba(52, 45, 61, 0.08);
+    border: 1px solid var(--color-verde-oscuro);
+}
+.mision-vision-card:hover{
+    transform: scale(1.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mision-vision-card h3{
+    color: var(--color-violeta);
+    margin-bottom: 1rem;
+}
+.mision-vision-card p{
+    color: var(--color-texto-secundario);
+    line-height: 1.7;
+}
+.mision-vision-card ul{
+    padding-left: 1.2rem;
+    margin: 0;
+}
+.mision-vision-card li{
+    margin-bottom: 0.7rem;
+    color: var(--color-texto-secundario);
 }
 /* ---------- RESPONSIVE BÁSICO ---------- */
 
@@ -575,9 +667,38 @@ footer a:hover {
         display: flex;
         flex-direction: column;
     }
-
+    .imagen-principal img{
+        height: 280px;
+    }
+    .imagenes-secundarias img{
+        height: 120px;
+    }
     .caracteristicas {
         display: flex;
         flex-direction: column;
+    }
+        .barra-superior-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .barra-info span:first-child {
+        grid-column: 1 / 3;
+        justify-self: center;
+        font-size: 0.8rem;
+    }
+
+    .barra-info span:nth-child(2) {
+        grid-column: 1;
+        justify-self: start;
+        font-size: 0.75rem;
+    }
+
+    .barra-telefono {
+        grid-column: 2;
+        justify-self: end;
+        font-size: 0.8rem;
     }
 }
