@@ -381,6 +381,28 @@ section {
     border-radius: var(--radio-borde);
 }
 
+.hero-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(118, 85, 143, 0.155); /* Línea divisoria muy sutil */
+}
+
+.estadistica-item .numero-stat {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--color-turquesa);
+    line-height: 1.2;
+    display: block;
+}
+
+.estadistica-item p {
+    margin: 0.2rem 0 0;
+    font-size: 0.95rem;
+    color: var(--color-texto-secundario);
+}
 
 /* ---------- FORMULARIOS ---------- */
 
@@ -769,6 +791,13 @@ footer a:hover {
     .hero-container {
         flex-direction: column;
         gap: 2rem;
+    }
+
+    .hero-estadisticas {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
     }
 
     .footer-container {
