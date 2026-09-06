@@ -3,6 +3,6 @@
 Integrantes del grupo:
     1.CASTELL ZIEGLER, Mariana Magali
     2.GARBARINI, Sofia
-    3.ALMEIDA, Jesica Yanina 
-    4.ROMERO, Cristhian Nahuel
-    5.Juan Ignacio
+    3. ALMEIDA, Jesica Yanina 
+    4. ROMERO, Cristhian Nahuel
+    5. MERCADO ROJAS, Juan Ignacio
