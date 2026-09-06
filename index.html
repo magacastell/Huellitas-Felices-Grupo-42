@@ -1,18 +1,291 @@
 <!DOCTYPE html>
-
-<html lang=""es">
-
-<head> 
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Veterinaria La Mary | Inicio</title>
-
-    <link rel="stylesheet" href="./css/style.css">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huellitas Felices - Veterinaria</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-</body>
+    <!-- Barra superior e íconos svg -->
+    <div class="barra-superior">
+        <div class="container barra-superior-container">
+            <div class="barra-info">
+                <!-- Ícono de ubicación -->
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                    </svg> Av. Los Ceibos 1420, Concordia</span>
+                <!-- Ícono de horario -->
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                    </svg> Lun a Vie: 08:30 - 20:00 hs | Sáb: 09:00 - 16:00 hs</span>
+            </div>
+            <!-- Por qué es un 'a'? Qué app abre?-->
+            <div class="barra-telefono">
+                <a href="tel:+543454567890"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                    </svg> +54 3454567890</a>
+            </div>
+        </div>
+    </div>
 
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="icono-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="46" fill="#f3f0ff" stroke="#e9d5ff" stroke-width="2"/>
+                        <path d="M50 48c-8.5 0-15.5 6.5-15.5 14.5 0 8 7 14.5 15.5 14.5s15.5-6.5 15.5-14.5c0-8-7-14.5-15.5-14.5zm0 21c-2.5 0-4.5-1.8-4.5-4 0-1.5.8-2.8 2-3.5l2.5 2.5 2.5-2.5c1.2.7 2 2 2 3.5 0 2.2-2 4-4.5 4z" fill="#5b4b8a"/>
+                        <ellipse cx="28" cy="45" rx="5" ry="7.5" fill="#8b5cf6" transform="rotate(-20 28 45)"/>
+                        <ellipse cx="41" cy="35" rx="5" ry="7.5" fill="#2dd4bf" transform="rotate(-8 41 35)"/>
+                        <ellipse cx="59" cy="35" rx="5" ry="7.5" fill="#2dd4bf" transform="rotate(8 59 35)"/>
+                        <ellipse cx="72" cy="45" rx="5" ry="7.5" fill="#8b5cf6" transform="rotate(20 72 45)"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <span class="logo-nombre">Huellitas Felices</span>
+                    <span class="logo-subtitulo">VETERINARIA &amp; BIENESTAR</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="activo">Inicio</a></li>
+                    <li><a href="institucional.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="contacto.html#formulario" class="btn-prueba">Pedir turno</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero section-lila">
+            <div class="container hero-container">
+                <div class="hero-texto">
+                    <span class="hero-badge">💜 Atención veterinaria cálida, cercana y profesional</span>
+
+                    <h1>
+                        Cuidamos sus huellitas como
+                        <span class="texto-violeta">parte de tu familia</span>
+                    </h1>
+
+                    <p>
+                        En <strong>Veterinaria Huellitas Felices</strong> brindamos
+                        atención médica profesional, cercana y libre de estrés para
+                        perros y gatos.
+                    </p>
+
+                    <a href="#profesionales" class="btn btn-primary">
+                        Ver profesionales y tarifas
+                    </a>
+
+                    <a href="contacto.html#formulario" class="btn btn-secondary">
+                        Pedir turno
+                    </a>
+                </div>
+
+                <div class="hero-imagen">
+                    <img src="assets/images/alec-favale-Ivzo69e18nk-unsplash.jpg"
+                         alt="Atención veterinaria a una mascota">
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-estadisticas">
+                    <div class="estadistica-item">
+                        <span class="numero-stat">+10</span>
+                        <p>Años de trayectoria</p>
+                    </div>
+                    <div class="estadistica-item">
+                        <span class="numero-stat">4</span>
+                        <p>Médicos matriculados</p>
+                    </div>
+                    <div class="estadistica-item">
+                        <span class="numero-stat">100%</span>
+                        <p>Manejo sin estrés</p>
+                    </div>
+             </div>
+            </div>
+
+        </section>
+
+        <section class="section-light">
+            <div class="container">
+                    <div class="section-title">
+                        <span class="hero-badge">Sobre nosotros</span>
+                        <h2>Un cuidado pensado para tu mascota</h2>
+                        <p>
+                            Nuestra misión es cuidar la salud integrsal de tus mascotas
+                            con profesionalismo, cariño y dedicación.
+                        </p>
+                    </div>
+
+                    <div class="cards-container">
+                        <article class="card">
+                            <h3>Atención cálida</h3>
+                            <p>Consultas sin prisas y con un trato afectuoso.</p>
+                        </article>
+
+                        <article class="card">
+                            <h3>Medicina preventiva</h3>
+                            <p>Controles, vacunas y seguimiento durante toda su vida.</p>
+                        </article>
+
+                        <article class="card">
+                            <h3>Profesionales comprometidos</h3>
+                            <p>Equipo capacitado para cuidar cada etapa de tu mascota.</p>
+                        </article>
+
+                        <article class="card">
+                            <h3>Ambiente seguro</h3>
+                            <p>Instalaciones cómodas, limpias y libres de estrés.</p>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="section-lila">
+            <div class="container">
+                <div class="servicios-encabezado">
+                    <span class="hero-badge">Atención integral</span>
+                    <h2>Servicios médicos y de bienestar</h2>
+                    <p>
+                        Todo lo necesario para acompañar a tu mascota en cada etapa
+                        de su vida.
+                    </p>
+                </div>
+
+                <div class="servicios-grid">
+                    <article class="servicio-card">
+                        <img src="assets/images/Gemini_Generated_Image_d0tw5ld0tw5ld0tw.jpg"
+                             alt="Consulta veterinaria">
+
+                        <span class="servicio-badge">Medicina preventiva</span>
+
+                        <div class="servicio-icono">♥</div>
+
+                        <h3>Consultas clínicas</h3>
+                        <p>
+                            Evaluaciones generales, controles de salud y seguimiento
+                            personalizado.
+                        </p>
+                    </article>
+
+                    <article class="servicio-card">
+                        <img src="assets/images/alvan-nee-T-0EW-SEbsE-unsplash.jpg"
+                             alt="Perro durante una consulta">
+
+                        <span class="servicio-badge">Inmunización</span>
+
+                        <div class="servicio-icono">✓</div>
+
+                        <h3>Vacunación</h3>
+                        <p>
+                            Planes de vacunación y desparasitación adaptados a cada
+                            mascota.
+                        </p>
+                    </article>
+
+                    <article class="servicio-card">
+                        <img src="assets/images/victor-g-N04FIfHhv_k-unsplash.jpg"
+                             alt="Mascota en atención veterinaria">
+
+                        <span class="servicio-badge">Cirugía segura</span>
+
+                        <div class="servicio-icono">✚</div>
+
+                        <h3>Cirugías y esterilizaciones</h3>
+                        <p>
+                            Procedimientos seguros con seguimiento profesional antes
+                            y después de la intervención.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="profesionales" class="section-light">
+            <div class="container">
+                <div class="section-title">
+                    <span class="hero-badge">Nuestro equipo</span>
+                    <h2>Profesionales disponibles</h2>
+                    <p>Especialistas comprometidos con el bienestar animal.</p>
+                </div>
+
+                <div class="cards-container">
+                    <article class="card">
+                        <h3>Dra. Laura Gómez</h3>
+                        <p>Medicina General</p>
+                        <p><strong>M.N. 8421 / M.P. 5120</strong></p>
+                        <p>Valor de consulta: $15.000</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Dr. Carlos Ruiz</h3>
+                        <p>Cirugía Veterinaria</p>
+                        <p><strong>M.N. 6310 / M.P. 4088</strong></p>
+                        <p>Valor de consulta: $20.000</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Dra. Sofía Martínez</h3>
+                        <p>Dermatología Animal</p>
+                        <p><strong>M.N. 9942 / M.P. 6712</strong></p>
+                        <p>Valor de consulta: $18.000</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="turno" class="cta">
+            <div class="container cta-contenido">
+                <div class="cta-texto">
+                    <span class="hero-badge">Estamos para ayudarte</span>
+                    <h2>¿Querés agendar una consulta?</h2>
+                    <p>
+                        Reservá tu turno y asegurale la mejor atención a tu compañero.
+                    </p>
+                    <a href="contacto.html" class="btn-prueba">Solicitar turno</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h3>Huellitas Felices</h3>
+                <p>Veterinaria y cuidado animal con compromiso y dedicación.</p>
+            </div>
+
+            <div>
+                <h3>Navegación</h3>
+                <p><a href="index.html">Inicio</a></p>
+                <p><a href="institucional.html">Nosotros</a></p>
+                <p><a href="contacto.html">Contacto</a></p>
+            </div>
+
+            <div>
+                <h3>Horarios</h3>
+                <p>Lunes a viernes: 08:00 a 20:00 hs.</p>
+                <p>Sábados: 09:00 a 13:00 hs.</p>
+            </div>
+
+            <div>
+                <h3>Contacto</h3>
+                <p>Av. Los Cedros 1450</p>
+                <p>+54 9 345 612-4700</p>
+                <p>
+                    <a href="mailto:hola@huellitasfelices.com">
+                        hola@huellitasfelices.com
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>
