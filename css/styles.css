@@ -323,6 +323,34 @@ section {
     background-color: #EAF7F6;
 }
 
+/* ---------- SECCIÓN QUIÉNES SOMOS PREVIEW ---------- */
+
+.quienes-somos-preview-card {
+    background-color: var(--color-fondo);
+    border-radius: var(--radio-borde);
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(52, 45, 61, 0.1);
+    border: 1px solid #eadff0;
+    position: relative;
+}
+
+.quienes-somos-preview-card h2 {
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: var(--color-texto);
+}
+
+.quienes-somos-preview-card p {
+    color: var(--color-texto-secundario);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.quienes-somos-footer {
+    display: flex;
+    justify-content: flex-end;
+}
 
 /* ---------- CARDS ---------- */
 
