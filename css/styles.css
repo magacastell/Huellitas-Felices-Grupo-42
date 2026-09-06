@@ -335,6 +335,55 @@ section {
     padding: 1.5rem;
 }
 
+/* ---------- ESTILOS DE TARJETAS DE RAZONES ---------- */
+
+.tarjeta-razon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.icono-razon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    border: 1px solid transparent;
+}
+
+.icono-razon svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Variante Morada (Tarjetas 1 y 3) */
+.icono-morado {
+    background-color: var(--color-blanco);
+    border-color: #e9d5ff;
+    color: var(--color-violeta);
+}
+
+/* Variante Turquesa (Tarjetas 2 y 4) */
+.icono-turquesa {
+    background-color: var(--color-blanco);
+    border-color: #ccfbf1;
+    color: var(--color-turquesa);
+}
+
+.tarjeta-razon h3 {
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-razon p {
+    font-size: 0.92rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.5;
+}
 
 /* Grilla reutilizable */
 
