@@ -188,12 +188,20 @@ header {
     width: 50px;
 }
 
-.logo-nombre {
+.texto-logo h1 {
     color: var(--color-violeta);
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 22px;
+    line-height: 1.1;
+    margin: 0;
 }
 
+.texto-logo p {
+    color: var(--color-verde-oscuro);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0;
+}
 
 /* ---------- NAVEGACIÓN ---------- */
 
@@ -230,6 +238,7 @@ nav a:hover {
 nav a.activo {
     color: var(--color-violeta);
     font-weight: 700;
+    text-decoration: underline;
 }
 
 
