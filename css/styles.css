@@ -188,6 +188,11 @@ header {
     width: 50px;
 }
 
+.enlace-logo {
+    color: inherit;
+    text-decoration: none;
+}
+
 .texto-logo h1 {
     color: var(--color-violeta);
     font-size: 22px;
