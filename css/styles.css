@@ -60,6 +60,23 @@ body {
     display: contents;
 }
 
+/* Unificación de estilos en la barra superior */
+
+.barra-info span,
+.barra-telefono a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.barra-superior svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    color: var(--color-verde-oscuro);
+    vertical-align: middle;
+}
+
 .barra-info span:first-child {
     grid-column: 1;
     justify-self: start;
