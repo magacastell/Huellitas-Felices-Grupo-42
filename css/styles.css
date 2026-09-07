@@ -594,33 +594,55 @@ footer a:hover {
     font-size: 0.85rem;
     font-weight: bold;
 }
-.hero-nosotros{
+/* ---------- HERO PÁGINAS INTERNAS ---------- */
+
+.hero-nosotros,
+.hero-contacto {
     min-height: 500px;
-    background-image: url(../assets/images/medium-shot-smiley-doctor-checking-dog.jpg);
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     padding: 0;
 }
-.hero-overlay{
+
+.hero-nosotros {
+    background-image: url("../assets/images/medium-shot-smiley-doctor-checking-dog.jpg");
+    background-position: center 42%;
+}
+
+.hero-contacto {
+    background-image: url("../assets/images/hero-contacto.png");
+    background-position: center;
+}
+
+.hero-nosotros .hero-overlay,
+.hero-contacto .hero-overlay {
     min-height: 500px;
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: rgba(52, 45, 61, 0.55)
+    background-color: rgba(52, 45, 61, 0.50);
 }
-.hero-nosotros .hero-texto{
+
+.hero-nosotros .hero-texto,
+.hero-contacto .hero-texto {
     max-width: 650px;
 }
-.hero-nosotros h1{
+
+.hero-nosotros h1,
+.hero-contacto h1 {
     color: var(--color-blanco);
     font-size: 3rem;
 }
-.hero-nosotros .hero-texto p{
+
+.hero-nosotros .hero-texto p,
+.hero-contacto .hero-texto p {
     color: var(--color-blanco);
     font-size: 1.1rem;
 }
-.hero-nosotros .texto-violeta{
+
+.hero-nosotros .texto-violeta,
+.hero-contacto .texto-violeta {
     color: var(--color-lila);
 }
 /*QUIENES SOMOS*/
