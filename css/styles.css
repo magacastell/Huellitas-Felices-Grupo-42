@@ -901,6 +901,84 @@ footer a:hover {
     opacity: 0.9;
     margin-bottom: 1.5rem;
 }
+
+/* ---------- CONTACTO ---------- */
+
+.contacto-datos {
+    padding: 2rem;
+}
+
+.contacto-intro {
+    margin-bottom: 1.5rem;
+}
+
+.contacto-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    padding: 1.2rem 0;
+    border-top: 1px solid #eeeeee;
+}
+
+.contacto-icono {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #F4EDF8;
+    color: var(--color-violeta);
+
+    border-radius: 12px;
+}
+
+.contacto-icono svg {
+    width: 20px;
+    height: 20px;
+}
+
+.contacto-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+}
+
+.contacto-item p {
+    margin: 0;
+}
+
+.contacto-item a {
+    color: var(--color-violeta);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contacto-item a:hover {
+    text-decoration: underline;
+}
+
+.horarios {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.horarios p {
+    display: flex;
+    flex-direction: column;
+}
+
+.horarios strong {
+    color: var(--color-texto);
+}
+
+.horarios span {
+    color: var(--color-texto-secundario);
+}
+
 /* ---------- RESPONSIVE BÁSICO ---------- */
 
 @media (max-width: 768px) {
