@@ -347,6 +347,10 @@ section {
     background-color: #EAF7F6;
 }
 
+.section-violeta {
+    background-image: linear-gradient(135deg, var(--color-violeta), var(--color-lila));
+}
+
 /* ---------- SECCIÓN QUIÉNES SOMOS PREVIEW ---------- */
 
 .quienes-somos-preview-card {
