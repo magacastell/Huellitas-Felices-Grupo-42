@@ -209,28 +209,23 @@ header {
     margin: 0;
 }
 
+
 /* ---------- NAVEGACIÓN ---------- */
 
-nav ul {
-    list-style: none;
-
-    display: flex;
-    align-items: center;
+.navbar-nav {
     gap: 1.5rem;
 }
 
-nav a {
+.navbar .nav-link {
     color: var(--color-texto);
     text-decoration: none;
     font-weight: 500;
 }
 
-nav a:hover {
-    /* color: var(--color-violeta); */
+.navbar .nav-link:hover {
     background-color: var(--color-fondo);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: inline-block;
-    /* padding: 0.75rem 1.3rem; */
     border: none;
     border-radius: 25px;
     text-decoration: underline;
@@ -241,7 +236,7 @@ nav a:hover {
 
 /* Página seleccionada */
 
-nav a.activo {
+.navbar .nav-link.activo {
     color: var(--color-violeta);
     font-weight: 700;
     text-decoration: underline;
@@ -303,7 +298,10 @@ nav a.activo {
     background-color: var(--color-violeta);
     color: var(--color-blanco);
 }
-/*Boton prueba*/
+
+
+/* Botón pedir turno */
+
 .btn-prueba {
     background-color: var(--color-lila);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -316,12 +314,15 @@ nav a.activo {
     cursor: pointer;
 }
 
+.navbar .btn-prueba {
+    color: var(--color-texto);
+}
+
 .btn-prueba:hover {
     transform: scale(1.03);
     color: var(--color-texto);
     box-shadow: 0 6px 15px rgba(52, 45, 61, 0.18);
 }
-
 /* ---------- SECCIONES ---------- */
 
 section {

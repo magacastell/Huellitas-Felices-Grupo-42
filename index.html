@@ -60,29 +60,89 @@
     </div>
 </div>
 
-    <header>
-        <div class="header-container">
-            <a href="index.html" class="enlace-logo">
-                <div class="logo">
-                    <img src="public/favicon.ico" alt="Logo de Huellitas Felices">
+   <header>
+    <div class="header-container">
 
-                    <!-- Texto de la Marca -->
-                    <div class="texto-logo">
-                        <h1>Huellitas Felices</h1>
-                        <p>VETERINARIA & BIENESTAR</p>
-                    </div>
+        <!-- Logo y nombre de la veterinaria -->
+        <a href="index.html" class="enlace-logo">
+            <div class="logo">
+
+                <img src="public/favicon.ico" alt="Logo de Huellitas Felices">
+
+                <div class="texto-logo">
+                    <h1>Huellitas Felices</h1>
+                    <p>VETERINARIA & BIENESTAR</p>
                 </div>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="activo">Inicio</a></li>
-                    <li><a href="institucional.html">Nosotros</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="contacto.html#formulario" class="btn-prueba">Pedir turno</a></li>
+
+            </div>
+        </a>
+
+        <!-- Navegación responsive -->
+        <nav class="navbar navbar-expand-lg p-0">
+
+            <!-- Botón hamburguesa -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarHuellitas"
+                aria-controls="navbarHuellitas"
+                aria-expanded="false"
+                aria-label="Abrir menú de navegación"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú colapsable -->
+            <div class="collapse navbar-collapse" id="navbarHuellitas">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a
+                            href="index.html"
+                            class="nav-link activo"
+                            aria-current="page"
+                        >
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            href="institucional.html"
+                            class="nav-link"
+                        >
+                            Nosotros
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            href="contacto.html"
+                            class="nav-link"
+                        >
+                            Contacto
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            href="contacto.html#formulario"
+                            class="nav-link btn-prueba"
+                        >
+                            Pedir turno
+                        </a>
+                    </li>
+
                 </ul>
-            </nav>
-        </div>
-    </header>
+
+            </div>
+
+        </nav>
+
+    </div>
+</header>
 
     <main>
         <section class="hero section-lila">
