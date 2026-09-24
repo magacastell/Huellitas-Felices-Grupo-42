@@ -118,6 +118,7 @@ img {
 }
 
 
+
 /* ---------- TÍTULOS Y TEXTOS ---------- */
 
 h1,
@@ -375,10 +376,7 @@ section {
     margin-bottom: 1.5rem;
 }
 
-.quienes-somos-footer {
-    display: flex;
-    justify-content: flex-end;
-}
+
 
 /* ---------- CARDS ---------- */
 
