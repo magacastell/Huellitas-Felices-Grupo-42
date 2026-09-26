@@ -158,17 +158,6 @@ header {
     border-bottom: 1px solid #eeeeee;
 }
 
-.header-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 1rem 0;
-}
 
 
 /* Logo */
@@ -205,6 +194,10 @@ header {
 
 
 /* ---------- NAVEGACIÓN ---------- */
+
+.navbar {
+    padding: 1rem 0;
+}
 
 .navbar-nav {
     gap: 1.5rem;
@@ -976,16 +969,20 @@ footer a:hover {
 
 @media (max-width: 768px) {
 
-    .header-container {
-        flex-direction: column;
-        gap: 1rem;
+    .navbar-nav {
+    gap: 0.5rem;
+    padding-top: 1rem;
     }
 
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
+    .navbar .nav-link {
+    padding: 0.7rem 1rem;
     }
 
+    .navbar .btn-prueba {
+    text-align: center;
+    margin-top: 0.5rem;
+    }
+    
     .hero-container {
         flex-direction: column;
         gap: 2rem;
