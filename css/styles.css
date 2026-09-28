@@ -592,12 +592,12 @@ footer a:hover {
 }
 
 .hero-nosotros {
-    background-image: url("../assets/images/medium-shot-smiley-doctor-checking-dog.jpg");
+    background-image: url("/assets/images/medium-shot-smiley-doctor-checking-dog.jpg");
     background-position: center 42%;
 }
 
 .hero-contacto {
-    background-image: url("../assets/images/hero-contacto.png");
+    background-image: url("/assets/images/hero-contacto.png");
     background-position: center;
 }
 
