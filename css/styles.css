@@ -1060,4 +1060,71 @@ footer a:hover {
     .servicios-encabezado{
         margin-bottom: 2rem;
     }
+
+    /*MEJORA DEL MENÚ MÓVIL (HAMBURGUESA)*/
+    
+    @media (max-width: 991.98px) {
+        /* 1. Contenedor principal del menú desplegable */
+        .navbar-collapse {
+            background-color: var(--color-blanco);
+            padding: 1.5rem;
+            border-radius: var(--radio-borde);
+            box-shadow: 0 10px 25px rgba(52, 45, 61, 0.12);
+            margin-top: 1rem;
+            border: 1px solid #eadff0;
+        }
+
+        /* 2. Alineación y separación de la lista de opciones */
+        .navbar-nav {
+            gap: 0.75rem;
+            width: 100%;
+        }
+
+        /* 3. Estilo de cada enlace dentro del menú móvil */
+        .navbar .nav-link {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            display: block;
+        }
+
+        /* Efecto al pasar el cursor o tocar el enlace */
+        .navbar .nav-link:hover {
+            background-color: var(--color-fondo);
+            color: var(--color-violeta);
+            text-decoration: none;
+        }
+
+        /* Estilo diferenciado para la página activa en el menú móvil */
+        .navbar .nav-link.activo {
+            background-color: #F4EDF8;
+            color: var(--color-violeta);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        /* 4. Adaptación del botón "Pedir turno" para pantallas táctiles */
+        .navbar .btn-prueba {
+            display: block;
+            text-align: center;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+    }
+
+    /* 5. Personalización del botón hamburguesa (toggler) */
+    .navbar-toggler {
+        border-color: var(--color-lila);
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.25rem rgba(118, 85, 143, 0.25);
+    }
+
+    /* Ícono del menú hamburguesa con el color violeta institucional */
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(118, 85, 143, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
 }
