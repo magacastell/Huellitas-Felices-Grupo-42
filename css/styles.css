@@ -592,12 +592,12 @@ footer a:hover {
 }
 
 .hero-nosotros {
-    background-image: url("../assets/images/medium-shot-smiley-doctor-checking-dog.jpg");
+    background-image: url("/assets/images/medium-shot-smiley-doctor-checking-dog.jpg");
     background-position: center 42%;
 }
 
 .hero-contacto {
-    background-image: url("../assets/images/hero-contacto.png");
+    background-image: url("/assets/images/hero-contacto.png");
     background-position: center;
 }
 
@@ -970,101 +970,131 @@ footer a:hover {
 @media (max-width: 768px) {
 
     .navbar-nav {
-    gap: 0.5rem;
-    padding-top: 1rem;
+        gap: 0.5rem;
+        padding-top: 1rem;
     }
-
     .navbar .nav-link {
-    padding: 0.7rem 1rem;
+        padding: 0.7rem 1rem;
     }
-
     .navbar .btn-prueba {
-    text-align: center;
-    margin-top: 0.5rem;
+        text-align: center;
+        margin-top: 0.5rem;
     }
-    
+    .hero-texto .btn {
+        display: block;
+    }
+    .hero-texto .btn + .btn {
+        margin-top: 0.5rem;
+    }
+    .form-control,
+    .form-select {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
     .hero-container {
+        width: 100%;
+        max-width: 100%;
         flex-direction: column;
         gap: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
-
+    .hero-texto,
+    .hero-imagen {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    .hero-badge {
+        max-width: 100%;
+        white-space: normal;
+    }
+    .hero-imagen img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+    }
     .hero-estadisticas {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 1.5rem;
         margin-top: 2.5rem;
     }
-
     .footer-container {
         flex-direction: column;
     }
-
     h1 {
         font-size: 2rem;
     }
-
     h2 {
         font-size: 1.6rem;
     }
     .hero-nosotros h1 {
         font-size: 2rem;
     }
-
     .quienes-somos-contenido {
         display: flex;
         flex-direction: column;
     }
-    .imagen-principal img{
+    .imagen-principal img {
         height: 280px;
     }
-    .imagenes-secundarias img{
+    .imagenes-secundarias img {
         height: 120px;
     }
     .caracteristicas {
         display: flex;
         flex-direction: column;
     }
-        .barra-superior-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.4rem;
-        padding-top: 0.4rem;
-        padding-bottom: 0.4rem;
-    }
-
-    .barra-info span:first-child {
-        grid-column: 1 / 3;
-        justify-self: center;
-        font-size: 0.8rem;
-    }
-
-    .barra-info span:nth-child(2) {
-        grid-column: 1;
-        justify-self: start;
-        font-size: 0.75rem;
-    }
     .mision-vision-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    .barra-telefono {
-        grid-column: 2;
-        justify-self: end;
-        font-size: 0.8rem;
+    .barra-superior-container {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+        padding: 0.4rem 0;
+        min-width: 0;
     }
-    .servicios-grid{
+    .barra-info span:first-child,
+    .barra-info span:nth-child(2),
+    .barra-telefono {
+        grid-column: 1;
+        justify-self: center;
+        white-space: normal;
+        text-align: center;
+        font-size: 0.75rem;
+        min-width: 0;
+        max-width: 100%;
+    }
+    .servicios-grid {
         grid-template-columns: 1fr;
     }
-    .servicio-card{
+    .servicio-card {
         padding: 1.5rem;
     }
-    .servicios-encabezado{
+    .servicios-encabezado {
         margin-bottom: 2rem;
     }
-
-    /*MEJORA DEL MENÚ MÓVIL (HAMBURGUESA)*/
+    .hero-texto,
+    .hero-imagen {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    .hero-badge {
+        max-width: 100%;
+        white-space: normal;
+    }
+    .hero-imagen img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+    }
     
     @media (max-width: 991.98px) {
-        /* 1. Contenedor principal del menú desplegable */
+
         .navbar-collapse {
             background-color: var(--color-blanco);
             padding: 1.5rem;
@@ -1074,13 +1104,11 @@ footer a:hover {
             border: 1px solid #eadff0;
         }
 
-        /* 2. Alineación y separación de la lista de opciones */
         .navbar-nav {
             gap: 0.75rem;
             width: 100%;
         }
 
-        /* 3. Estilo de cada enlace dentro del menú móvil */
         .navbar .nav-link {
             padding: 0.75rem 1rem;
             border-radius: 8px;
@@ -1088,14 +1116,12 @@ footer a:hover {
             display: block;
         }
 
-        /* Efecto al pasar el cursor o tocar el enlace */
         .navbar .nav-link:hover {
             background-color: var(--color-fondo);
             color: var(--color-violeta);
             text-decoration: none;
         }
 
-        /* Estilo diferenciado para la página activa en el menú móvil */
         .navbar .nav-link.activo {
             background-color: #F4EDF8;
             color: var(--color-violeta);
@@ -1103,7 +1129,6 @@ footer a:hover {
             text-decoration: none;
         }
 
-        /* 4. Adaptación del botón "Pedir turno" para pantallas táctiles */
         .navbar .btn-prueba {
             display: block;
             text-align: center;
@@ -1112,7 +1137,6 @@ footer a:hover {
         }
     }
 
-    /* 5. Personalización del botón hamburguesa (toggler) */
     .navbar-toggler {
         border-color: var(--color-lila);
         padding: 0.5rem 0.75rem;
@@ -1123,7 +1147,6 @@ footer a:hover {
         box-shadow: 0 0 0 0.25rem rgba(118, 85, 143, 0.25);
     }
 
-    /* Ícono del menú hamburguesa con el color violeta institucional */
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(118, 85, 143, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
