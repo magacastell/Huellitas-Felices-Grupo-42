@@ -580,6 +580,32 @@ footer a:hover {
     font-size: 0.85rem;
     font-weight: bold;
 }
+.hero-badge-grande {
+    font-size: 1.25rem;
+}
+
+/* ---------- TITULO CON LINEAS ---------- */
+.titulo-con-lineas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto 1rem auto;
+}
+
+.titulo-con-lineas::before,
+.titulo-con-lineas::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: var(--color-lila);
+}
+
+.titulo-con-lineas .hero-badge {
+    margin-bottom: 0;
+}
+
 /* ---------- HERO PÁGINAS INTERNAS ---------- */
 
 .hero-nosotros,
@@ -740,12 +766,12 @@ footer a:hover {
 /* ---------- AJUSTES DE ESPACIADO INSTITUCIONAL ---------- */
 
 .mision-vision {
-    padding-top: 3rem;
+    padding-top: 0rem;
     padding-bottom: 3rem;
 }
 
 .servicios {
-    padding-top: 3rem;
+    padding-top: 0rem;
     padding-bottom: 3rem;
 }
 
