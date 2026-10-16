@@ -247,6 +247,78 @@
         </section>
     </main>
 
+    <div class="modal fade" id="modalEditarMascota" tabindex="-1"
+        aria-labelledby="tituloModalEditar" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <form id="formularioEditarMascota">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="tituloModalEditar">
+                            Editar mascota
+                        </h2>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Cerrar">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="editarNombreMascota" class="form-label">
+                                Nombre de la mascota
+                            </label>
+                            <input type="text" class="form-control"
+                                id="editarNombreMascota" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editarNombreDuenio" class="form-label">
+                                Nombre del duenio
+                            </label>
+                            <input type="text" class="form-control"
+                                id="editarNombreDuenio" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editarColor" class="form-label">
+                                Color
+                            </label>
+                            <input type="text" class="form-control"
+                                id="editarColor" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editarEdad" class="form-label">
+                                Edad (anios)
+                            </label>
+                            <input type="number" class="form-control"
+                                id="editarEdad" min="0" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editarPeso" class="form-label">
+                                Peso (kg)
+                            </label>
+                            <input type="number" class="form-control"
+                                id="editarPeso" min="0" step="any" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+
+                        <button type="submit" class="btn btn-prueba">
+                            Guardar cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <footer>
     </footer>
 

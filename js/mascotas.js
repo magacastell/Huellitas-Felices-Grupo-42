@@ -1,3 +1,4 @@
+
 import {
     obtenerRegistros,
     guardarRegistros,
@@ -6,6 +7,12 @@ import {
 
 let mascotas = obtenerRegistros("mascotas");
 let idMascotaEditando = null;
+
+const formularioMascota = document.getElementById("formularioMascota");
+const formularioEditarMascota = document.getElementById("formularioEditarMascota");
+
+const elementoModalEditar = document.getElementById("modalEditarMascota");
+const modalEditarMascota = new bootstrap.Modal(elementoModalEditar);
 
 function crearMascota(nombreMascota, nombreDuenio, color, peso, edad) {
     let mascota = {
@@ -16,7 +23,6 @@ function crearMascota(nombreMascota, nombreDuenio, color, peso, edad) {
         peso: peso,
         edad: edad
     };
-
     return mascota;
 }
 
@@ -30,13 +36,13 @@ function editarMascota(idMascota) {
         return mascota.idMascota === idMascota;
     });
 
-    document.getElementById("nombreMascota").value = mascota.nombreMascota;
-    document.getElementById("nombreDuenio").value = mascota.nombreDuenio;
-    document.getElementById("color").value = mascota.color;
-    document.getElementById("peso").value = mascota.peso;
-    document.getElementById("edad").value = mascota.edad;
-
+    document.getElementById("editarNombreMascota").value = mascota.nombreMascota;
+    document.getElementById("editarNombreDuenio").value = mascota.nombreDuenio;
+    document.getElementById("editarColor").value = mascota.color;
+    document.getElementById("editarPeso").value = mascota.peso;
+    document.getElementById("editarEdad").value = mascota.edad;
     idMascotaEditando = mascota.idMascota;
+    modalEditarMascota.show();
 }
 
 function mostrarMascotas() {
@@ -53,7 +59,6 @@ function mostrarMascotas() {
 
     mascotas.forEach(function (mascota) {
         const fila = document.createElement("tr");
-
         fila.innerHTML = `
             <td>${mascota.nombreMascota}</td>
             <td>${mascota.nombreDuenio}</td>
@@ -69,15 +74,11 @@ function mostrarMascotas() {
                 </button>
             </td>
         `;
-
         const botonEditar = fila.querySelector(".btn-editar");
-
         botonEditar.addEventListener("click", function () {
             editarMascota(mascota.idMascota);
         });
-
         const botonEliminar = fila.querySelector(".btn-eliminar");
-
         botonEliminar.addEventListener("click", function () {
             const confirmar = confirm(
                 `¿Estás seguro de que querés eliminar a ${mascota.nombreMascota}?`
@@ -87,12 +88,9 @@ function mostrarMascotas() {
                 eliminarMascota(mascota.idMascota);
             }
         });
-
         tablaMascotas.appendChild(fila);
     });
 }
-
-const formularioMascota = document.getElementById("formularioMascota");
 
 formularioMascota.addEventListener("submit", function (evento) {
     evento.preventDefault();
@@ -102,33 +100,51 @@ formularioMascota.addEventListener("submit", function (evento) {
     const color = document.getElementById("color").value;
     const peso = Number(document.getElementById("peso").value);
     const edad = Number(document.getElementById("edad").value);
+    const mascota = crearMascota(
+        nombreMascota,
+        nombreDuenio,
+        color,
+        peso,
+        edad
+    );
 
-    if (idMascotaEditando === null) {
-        const mascota = crearMascota(
-            nombreMascota,
-            nombreDuenio,
-            color,
-            peso,
-            edad
-        );
-        registrarMascota(mascota);
-    } else {
-        mascotas = mascotas.map(function (mascota) {
-            if (mascota.idMascota === idMascotaEditando) {
-                mascota.nombreMascota = nombreMascota;
-                mascota.nombreDuenio = nombreDuenio;
-                mascota.color = color;
-                mascota.peso = peso;
-                mascota.edad = edad;
-            }
-            return mascota;
-        });
-        guardarRegistros("mascotas", mascotas);
-        idMascotaEditando = null;
-    }
+    registrarMascota(mascota);
     mostrarMascotas();
     formularioMascota.reset();
     console.log(mascotas);
+});
+
+formularioEditarMascota.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+
+    const confirmar = confirm(
+        "¿Estás seguro de que querés guardar los cambios de esta mascota?"
+    );
+    if (!confirmar) {
+        return;
+    }
+    mascotas = mascotas.map(function (mascota) {
+        if (mascota.idMascota === idMascotaEditando) {
+            mascota.nombreMascota = document.getElementById("editarNombreMascota").value;
+            mascota.nombreDuenio = document.getElementById("editarNombreDuenio").value;
+            mascota.color = document.getElementById("editarColor").value;
+            mascota.peso = Number(document.getElementById("editarPeso").value);
+            mascota.edad = Number(document.getElementById("editarEdad").value);
+        }
+        return mascota;
+    });
+
+    guardarRegistros("mascotas", mascotas);
+    idMascotaEditando = null;
+    mostrarMascotas();
+    formularioEditarMascota.reset();
+    modalEditarMascota.hide();
+    console.log(mascotas);
+});
+
+elementoModalEditar.addEventListener("hidden.bs.modal", function () {
+    idMascotaEditando = null;
+    formularioEditarMascota.reset();
 });
 
 function eliminarMascota(idMascota) {
@@ -139,5 +155,4 @@ function eliminarMascota(idMascota) {
     guardarRegistros("mascotas", mascotas);
     mostrarMascotas();
 }
-
 mostrarMascotas();
