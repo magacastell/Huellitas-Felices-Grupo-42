@@ -2,6 +2,7 @@ import {
   obtenerRegistros,
   guardarRegistros,
   generarId,
+  buscarRegistroUnico,
 } from "./storage.js";
 
 // clave para guardar los veterinarios en el localstorage
@@ -168,7 +169,7 @@ function renderizarTabla() {
 // Carga la edición en el modal, sin alterar el formulario de alta.
 function editarVeterinario(idVeterinario) {
   const veterinarios = obtenerVeterinarios();
-  const veterinario = veterinarios.find((vet) => vet.idVeterinario === idVeterinario);
+  const veterinario = buscarRegistroUnico(veterinarios, "idVeterinario", idVeterinario);
 
   if (!veterinario) {
     return;
@@ -185,7 +186,7 @@ function editarVeterinario(idVeterinario) {
 // borra un veterinario
 function eliminarVeterinario(idVeterinario) {
   const veterinarios = obtenerVeterinarios();
-  const veterinario = veterinarios.find((vet) => vet.idVeterinario === idVeterinario);
+  const veterinario = buscarRegistroUnico(veterinarios, "idVeterinario", idVeterinario);
 
   if (!veterinario) {
     return;
@@ -200,7 +201,7 @@ function eliminarVeterinario(idVeterinario) {
   }
 
   const nuevosRegistros = veterinarios.filter((vet) => vet.idVeterinario !== idVeterinario);
-  guardarRegistros(CLAVE_VETERINARIOS, nuevosRegistros);
+  if (!guardarRegistros(CLAVE_VETERINARIOS, nuevosRegistros)) return;
 
   // si justo borra el que se estaba editando, limpia el form
   if (idVeterinarioEditando === idVeterinario) {
@@ -217,7 +218,7 @@ formVeterinario.addEventListener("submit", (evento) => {
   const datosValidos = capturarYValidarDatos(veterinarios);
   if (!datosValidos) return;
   veterinarios.push({ idVeterinario: generarId(), ...datosValidos });
-  guardarRegistros(CLAVE_VETERINARIOS, veterinarios);
+  if (!guardarRegistros(CLAVE_VETERINARIOS, veterinarios)) return;
   formVeterinario.reset();
   renderizarTabla();
 });
@@ -225,14 +226,14 @@ formVeterinario.addEventListener("submit", (evento) => {
 formEditarVeterinario.addEventListener("submit", (evento) => {
   evento.preventDefault();
   const veterinarios = obtenerVeterinarios();
-  if (!veterinarios.some((vet) => vet.idVeterinario === idVeterinarioEditando)) return;
+  if (!buscarRegistroUnico(veterinarios, "idVeterinario", idVeterinarioEditando)) return;
   const datosValidos = capturarYValidarDatos(veterinarios, true);
   if (!datosValidos) return;
   if (!confirm(`¿Confirmás la actualización de los datos de "${datosValidos.nombre}"?`)) return;
   const actualizados = veterinarios.map((vet) =>
     vet.idVeterinario === idVeterinarioEditando ? { ...vet, ...datosValidos } : vet
   );
-  guardarRegistros(CLAVE_VETERINARIOS, actualizados);
+  if (!guardarRegistros(CLAVE_VETERINARIOS, actualizados)) return;
   renderizarTabla();
   modalEditarVeterinario.hide();
 });

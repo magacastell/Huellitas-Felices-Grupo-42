@@ -2,7 +2,8 @@
 import {
     obtenerRegistros,
     guardarRegistros,
-    generarId
+    generarId,
+    buscarRegistroUnico
 } from "./storage.js";
 
 let mascotas = obtenerRegistros("mascotas");
@@ -61,14 +62,15 @@ function crearMascota(nombreMascota, nombreDuenio, color, peso, edad) {
 }
 
 function registrarMascota(mascota) {
-    mascotas.push(mascota);
-    guardarRegistros("mascotas", mascotas);
+    const actualizadas = [...mascotas, mascota];
+    if (!guardarRegistros("mascotas", actualizadas)) return false;
+    mascotas = actualizadas;
+    return true;
 }
 
 function editarMascota(idMascota) {
-    const mascota = mascotas.find(function (mascota) {
-        return mascota.idMascota === idMascota;
-    });
+    const mascota = buscarRegistroUnico(mascotas, "idMascota", idMascota);
+    if (!mascota) return;
 
     document.getElementById("editarNombreMascota").value = mascota.nombreMascota;
     document.getElementById("editarNombreDuenio").value = mascota.nombreDuenio;
@@ -145,7 +147,7 @@ formularioMascota.addEventListener("submit", function (evento) {
         edad
     );
 
-    registrarMascota(mascota);
+    if (!registrarMascota(mascota)) return;
     mostrarMascotas();
     formularioMascota.reset();
     console.log(mascotas);
@@ -165,14 +167,12 @@ formularioEditarMascota.addEventListener("submit", function (evento) {
     if (!confirmar) {
         return;
     }
-    mascotas = mascotas.map(function (mascota) {
-        if (mascota.idMascota === idMascotaEditando) {
-            Object.assign(mascota, datos);
-        }
-        return mascota;
-    });
-
-    guardarRegistros("mascotas", mascotas);
+    if (!buscarRegistroUnico(mascotas, "idMascota", idMascotaEditando)) return;
+    const actualizadas = mascotas.map((mascota) =>
+        mascota.idMascota === idMascotaEditando ? { ...mascota, ...datos } : mascota
+    );
+    if (!guardarRegistros("mascotas", actualizadas)) return;
+    mascotas = actualizadas;
     idMascotaEditando = null;
     mostrarMascotas();
     formularioEditarMascota.reset();
@@ -186,11 +186,13 @@ elementoModalEditar.addEventListener("hidden.bs.modal", function () {
 });
 
 function eliminarMascota(idMascota) {
-    mascotas = mascotas.filter(function (mascota) {
+    if (!buscarRegistroUnico(mascotas, "idMascota", idMascota)) return;
+    const actualizadas = mascotas.filter(function (mascota) {
         return mascota.idMascota !== idMascota;
     });
 
-    guardarRegistros("mascotas", mascotas);
+    if (!guardarRegistros("mascotas", actualizadas)) return;
+    mascotas = actualizadas;
     mostrarMascotas();
 }
 mostrarMascotas();
