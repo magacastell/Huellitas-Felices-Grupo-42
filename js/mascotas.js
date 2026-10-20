@@ -14,6 +14,40 @@ const formularioEditarMascota = document.getElementById("formularioEditarMascota
 const elementoModalEditar = document.getElementById("modalEditarMascota");
 const modalEditarMascota = new bootstrap.Modal(elementoModalEditar);
 
+// Comparte las mismas validaciones entre alta y edición.
+function capturarYValidarMascota(editando = false) {
+    const campos = editando
+        ? ["editarNombreMascota", "editarNombreDuenio", "editarColor", "editarPeso", "editarEdad"]
+        : ["nombreMascota", "nombreDuenio", "color", "peso", "edad"];
+    const inputs = campos.map((id) => document.getElementById(id));
+    const [nombreMascota, nombreDuenio, color, pesoIngresado, edadIngresada] =
+        inputs.map((input) => input.value.trim());
+
+    for (let indice = 0; indice < 3; indice++) {
+        if (inputs[indice].value.trim() === "") {
+            alert("Completá los campos obligatorios con texto, no solo espacios.");
+            inputs[indice].focus();
+            return null;
+        }
+    }
+
+    const edad = Number(edadIngresada);
+    if (edadIngresada === "" || !Number.isSafeInteger(edad) || edad < 0) {
+        alert("Ingresá una edad válida: un entero no negativo y seguro.");
+        inputs[4].focus();
+        return null;
+    }
+
+    const peso = Number(pesoIngresado);
+    if (pesoIngresado === "" || !Number.isFinite(peso) || peso < 0) {
+        alert("Ingresá un peso válido: un número finito mayor o igual a cero.");
+        inputs[3].focus();
+        return null;
+    }
+
+    return { nombreMascota, nombreDuenio, color, peso, edad };
+}
+
 function crearMascota(nombreMascota, nombreDuenio, color, peso, edad) {
     let mascota = {
         idMascota: generarId(),
@@ -50,7 +84,7 @@ function mostrarMascotas() {
     const contadorMascotas = document.getElementById("contadorMascotas");
     const mensajeMascotas = document.getElementById("mensajeMascotas");
 
-    tablaMascotas.innerHTML = "";
+    tablaMascotas.replaceChildren();
     contadorMascotas.textContent = `${mascotas.length} mascotas`;
 
     mensajeMascotas.textContent = mascotas.length === 0
@@ -59,26 +93,25 @@ function mostrarMascotas() {
 
     mascotas.forEach(function (mascota) {
         const fila = document.createElement("tr");
-        fila.innerHTML = `
-            <td>${mascota.nombreMascota}</td>
-            <td>${mascota.nombreDuenio}</td>
-            <td>${mascota.color}</td>
-            <td>${mascota.edad}</td>
-            <td>${mascota.peso}</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-warning btn-editar">
-                    Editar
-                </button>
-                <button type="button" class="btn btn-sm btn-danger btn-eliminar">
-                    Eliminar
-                </button>
-            </td>
-        `;
-        const botonEditar = fila.querySelector(".btn-editar");
+        [mascota.nombreMascota, mascota.nombreDuenio, mascota.color, mascota.edad, mascota.peso]
+            .forEach(function (valor) {
+                const celda = document.createElement("td");
+                celda.textContent = valor;
+                fila.appendChild(celda);
+            });
+        const acciones = document.createElement("td");
+        acciones.className = "admin-actions";
+        const botonEditar = document.createElement("button");
+        botonEditar.type = "button";
+        botonEditar.className = "btn btn-sm admin-btn-edit btn-editar";
+        botonEditar.textContent = "Editar";
         botonEditar.addEventListener("click", function () {
             editarMascota(mascota.idMascota);
         });
-        const botonEliminar = fila.querySelector(".btn-eliminar");
+        const botonEliminar = document.createElement("button");
+        botonEliminar.type = "button";
+        botonEliminar.className = "btn btn-sm admin-btn-delete btn-eliminar";
+        botonEliminar.textContent = "Eliminar";
         botonEliminar.addEventListener("click", function () {
             const confirmar = confirm(
                 `¿Estás seguro de que querés eliminar a ${mascota.nombreMascota}?`
@@ -88,6 +121,10 @@ function mostrarMascotas() {
                 eliminarMascota(mascota.idMascota);
             }
         });
+        acciones.appendChild(botonEditar);
+        acciones.appendChild(document.createTextNode(" "));
+        acciones.appendChild(botonEliminar);
+        fila.appendChild(acciones);
         tablaMascotas.appendChild(fila);
     });
 }
@@ -95,11 +132,11 @@ function mostrarMascotas() {
 formularioMascota.addEventListener("submit", function (evento) {
     evento.preventDefault();
 
-    const nombreMascota = document.getElementById("nombreMascota").value;
-    const nombreDuenio = document.getElementById("nombreDuenio").value;
-    const color = document.getElementById("color").value;
-    const peso = Number(document.getElementById("peso").value);
-    const edad = Number(document.getElementById("edad").value);
+    const datos = capturarYValidarMascota();
+    if (!datos) {
+        return;
+    }
+    const { nombreMascota, nombreDuenio, color, peso, edad } = datos;
     const mascota = crearMascota(
         nombreMascota,
         nombreDuenio,
@@ -117,6 +154,11 @@ formularioMascota.addEventListener("submit", function (evento) {
 formularioEditarMascota.addEventListener("submit", function (evento) {
     evento.preventDefault();
 
+    const datos = capturarYValidarMascota(true);
+    if (!datos) {
+        return;
+    }
+
     const confirmar = confirm(
         "¿Estás seguro de que querés guardar los cambios de esta mascota?"
     );
@@ -125,11 +167,7 @@ formularioEditarMascota.addEventListener("submit", function (evento) {
     }
     mascotas = mascotas.map(function (mascota) {
         if (mascota.idMascota === idMascotaEditando) {
-            mascota.nombreMascota = document.getElementById("editarNombreMascota").value;
-            mascota.nombreDuenio = document.getElementById("editarNombreDuenio").value;
-            mascota.color = document.getElementById("editarColor").value;
-            mascota.peso = Number(document.getElementById("editarPeso").value);
-            mascota.edad = Number(document.getElementById("editarEdad").value);
+            Object.assign(mascota, datos);
         }
         return mascota;
     });

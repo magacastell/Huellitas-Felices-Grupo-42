@@ -7,16 +7,22 @@ import {
 // clave para guardar los veterinarios en el localstorage
 const CLAVE_VETERINARIOS = "veterinarios";
 
+// Adapta registros anteriores en memoria, sin escribir ni descartar campos.
+function obtenerVeterinarios() {
+  return obtenerRegistros(CLAVE_VETERINARIOS).map((veterinario) => ({
+    ...veterinario,
+    idVeterinario: veterinario.idVeterinario ?? veterinario.id,
+  }));
+}
+
 // guarda el id si se edita un veterinario
 let idVeterinarioEditando = null;
 
 // elementos del dom que trae del html
 const formVeterinario = document.getElementById("formVeterinario");
-const inputMatricula = document.getElementById("matricula");
-const inputNombre = document.getElementById("nombre");
-const inputEspecializacion = document.getElementById("especializacion");
-const inputValorConsulta = document.getElementById("valorConsulta");
-const btnGuardarVeterinario = document.getElementById("btnGuardarVeterinario");
+const formEditarVeterinario = document.getElementById("formEditarVeterinario");
+const elementoModalEditarVeterinario = document.getElementById("modalEditarVeterinario");
+const modalEditarVeterinario = new bootstrap.Modal(elementoModalEditarVeterinario);
 const tablaVeterinarios = document.getElementById("tablaVeterinarios");
 const totalVeterinarios = document.getElementById("totalVeterinarios");
 
@@ -32,14 +38,20 @@ function formatearMoneda(valor) {
 }
 
 // valida los datos del form
-function capturarYValidarDatos(veterinarios) {
-  const matricula = Number.parseInt(inputMatricula.value.trim(), 10);
+function capturarYValidarDatos(veterinarios, editando = false) {
+  const inputMatricula = document.getElementById(editando ? "editarMatricula" : "matricula");
+  const inputNombre = document.getElementById(editando ? "editarNombre" : "nombre");
+  const inputEspecializacion = document.getElementById(editando ? "editarEspecializacion" : "especializacion");
+  const inputValorConsulta = document.getElementById(editando ? "editarValorConsulta" : "valorConsulta");
+  const matriculaIngresada = inputMatricula.value.trim();
+  const matricula = Number(matriculaIngresada);
   const nombre = inputNombre.value.trim();
   const especializacion = inputEspecializacion.value.trim();
-  const valorConsulta = Number.parseFloat(inputValorConsulta.value.trim());
+  const valorIngresado = inputValorConsulta.value.trim();
+  const valorConsulta = Number(valorIngresado);
 
-  if (!Number.isInteger(matricula) || matricula < 1) {
-    alert("Por favor, ingresá un número de matrícula válido (entero mayor a 0).");
+  if (!/^\d+$/.test(matriculaIngresada) || !Number.isSafeInteger(matricula) || matricula < 1) {
+    alert("Por favor, ingresá una matrícula válida (entero positivo y seguro, escrito solo con dígitos).");
     inputMatricula.focus();
     return null;
   }
@@ -56,7 +68,7 @@ function capturarYValidarDatos(veterinarios) {
     return null;
   }
 
-  if (Number.isNaN(valorConsulta) || valorConsulta < 0) {
+  if (valorIngresado === "" || !Number.isFinite(valorConsulta) || valorConsulta < 0) {
     alert("Por favor, ingresá un valor de consulta válido (mayor o igual a 0).");
     inputValorConsulta.focus();
     return null;
@@ -64,7 +76,7 @@ function capturarYValidarDatos(veterinarios) {
 
   // se fija que no haya otro veterinario con la misma matrícula
   const matriculaDuplicada = veterinarios.some(
-    (vet) => vet.matricula === matricula && vet.id !== idVeterinarioEditando
+    (vet) => vet.matricula === matricula && vet.idVeterinario !== (editando ? idVeterinarioEditando : null)
   );
 
   if (matriculaDuplicada) {
@@ -83,7 +95,7 @@ function capturarYValidarDatos(veterinarios) {
 
 // arma la tabla con los veterinarios guardados y actualiza el contador
 function renderizarTabla() {
-  const veterinarios = obtenerRegistros(CLAVE_VETERINARIOS);
+  const veterinarios = obtenerVeterinarios();
 
   // actualiza el contador
   const cantidad = veterinarios.length;
@@ -123,20 +135,21 @@ function renderizarTabla() {
     tdValorConsulta.textContent = formatearMoneda(vet.valorConsulta);
 
     const tdAcciones = document.createElement("td");
+    tdAcciones.className = "admin-actions";
     const contenedorBotones = document.createElement("div");
-    contenedorBotones.className = "d-flex gap-2";
+    contenedorBotones.className = "admin-action-buttons";
 
     const btnEditar = document.createElement("button");
     btnEditar.type = "button";
-    btnEditar.className = "btn btn-sm btn-outline-primary";
+    btnEditar.className = "btn btn-sm admin-btn-edit";
     btnEditar.textContent = "Editar";
-    btnEditar.addEventListener("click", () => cargarVeterinarioEnFormulario(vet.id));
+    btnEditar.addEventListener("click", () => editarVeterinario(vet.idVeterinario));
 
     const btnEliminar = document.createElement("button");
     btnEliminar.type = "button";
-    btnEliminar.className = "btn btn-sm btn-outline-danger";
+    btnEliminar.className = "btn btn-sm admin-btn-delete";
     btnEliminar.textContent = "Eliminar";
-    btnEliminar.addEventListener("click", () => eliminarVeterinario(vet.id));
+    btnEliminar.addEventListener("click", () => eliminarVeterinario(vet.idVeterinario));
 
     contenedorBotones.appendChild(btnEditar);
     contenedorBotones.appendChild(btnEliminar);
@@ -152,30 +165,27 @@ function renderizarTabla() {
   });
 }
 
-// sube los datos del veterinario al editar
-function cargarVeterinarioEnFormulario(id) {
-  const veterinarios = obtenerRegistros(CLAVE_VETERINARIOS);
-  const veterinario = veterinarios.find((vet) => vet.id === id);
+// Carga la edición en el modal, sin alterar el formulario de alta.
+function editarVeterinario(idVeterinario) {
+  const veterinarios = obtenerVeterinarios();
+  const veterinario = veterinarios.find((vet) => vet.idVeterinario === idVeterinario);
 
   if (!veterinario) {
     return;
   }
 
-  idVeterinarioEditando = veterinario.id;
-  inputMatricula.value = veterinario.matricula;
-  inputNombre.value = veterinario.nombre;
-  inputEspecializacion.value = veterinario.especializacion;
-  inputValorConsulta.value = veterinario.valorConsulta;
-
-  btnGuardarVeterinario.textContent = "Actualizar veterinario";
-  formVeterinario.scrollIntoView({ behavior: "smooth" });
-  inputMatricula.focus();
+  idVeterinarioEditando = veterinario.idVeterinario;
+  document.getElementById("editarMatricula").value = veterinario.matricula;
+  document.getElementById("editarNombre").value = veterinario.nombre;
+  document.getElementById("editarEspecializacion").value = veterinario.especializacion;
+  document.getElementById("editarValorConsulta").value = veterinario.valorConsulta;
+  modalEditarVeterinario.show();
 }
 
 // borra un veterinario
-function eliminarVeterinario(id) {
-  const veterinarios = obtenerRegistros(CLAVE_VETERINARIOS);
-  const veterinario = veterinarios.find((vet) => vet.id === id);
+function eliminarVeterinario(idVeterinario) {
+  const veterinarios = obtenerVeterinarios();
+  const veterinario = veterinarios.find((vet) => vet.idVeterinario === idVeterinario);
 
   if (!veterinario) {
     return;
@@ -189,70 +199,47 @@ function eliminarVeterinario(id) {
     return;
   }
 
-  const nuevosRegistros = veterinarios.filter((vet) => vet.id !== id);
+  const nuevosRegistros = veterinarios.filter((vet) => vet.idVeterinario !== idVeterinario);
   guardarRegistros(CLAVE_VETERINARIOS, nuevosRegistros);
 
   // si justo borra el que se estaba editando, limpia el form
-  if (idVeterinarioEditando === id) {
-    formVeterinario.reset();
+  if (idVeterinarioEditando === idVeterinario) {
+    modalEditarVeterinario.hide();
   }
 
   renderizarTabla();
 }
 
-// vuelve el botón y el form al modo normal
-function salirModoEdicion() {
-  idVeterinarioEditando = null;
-  btnGuardarVeterinario.textContent = "Guardar veterinario";
-}
-
-// cuando se envía el formulario (guardar uno nuevo o editar)
+// El formulario superior siempre registra un veterinario nuevo.
 formVeterinario.addEventListener("submit", (evento) => {
   evento.preventDefault();
-
-  const veterinarios = obtenerRegistros(CLAVE_VETERINARIOS);
+  const veterinarios = obtenerVeterinarios();
   const datosValidos = capturarYValidarDatos(veterinarios);
-
-  if (!datosValidos) {
-    return;
-  }
-
-  if (idVeterinarioEditando !== null) {
-    // pide confirmación antes de guardar los cambios
-    const confirmarEdicion = confirm(
-      `¿Confirmás la actualización de los datos de "${datosValidos.nombre}"?`
-    );
-
-    if (!confirmarEdicion) {
-      return;
-    }
-
-    const veterinariosActualizados = veterinarios.map((vet) =>
-      vet.id === idVeterinarioEditando
-        ? { id: idVeterinarioEditando, ...datosValidos }
-        : vet
-    );
-
-    guardarRegistros(CLAVE_VETERINARIOS, veterinariosActualizados);
-  } else {
-    // si es uno nuevo le genera el id automático y lo guarda
-    const nuevoVeterinario = {
-      id: generarId(),
-      ...datosValidos,
-    };
-
-    veterinarios.push(nuevoVeterinario);
-    guardarRegistros(CLAVE_VETERINARIOS, veterinarios);
-  }
-
+  if (!datosValidos) return;
+  veterinarios.push({ idVeterinario: generarId(), ...datosValidos });
+  guardarRegistros(CLAVE_VETERINARIOS, veterinarios);
   formVeterinario.reset();
-  salirModoEdicion();
   renderizarTabla();
 });
 
-// si tocan el botón limpiar, sale del modo edición
-formVeterinario.addEventListener("reset", () => {
-  salirModoEdicion();
+formEditarVeterinario.addEventListener("submit", (evento) => {
+  evento.preventDefault();
+  const veterinarios = obtenerVeterinarios();
+  if (!veterinarios.some((vet) => vet.idVeterinario === idVeterinarioEditando)) return;
+  const datosValidos = capturarYValidarDatos(veterinarios, true);
+  if (!datosValidos) return;
+  if (!confirm(`¿Confirmás la actualización de los datos de "${datosValidos.nombre}"?`)) return;
+  const actualizados = veterinarios.map((vet) =>
+    vet.idVeterinario === idVeterinarioEditando ? { ...vet, ...datosValidos } : vet
+  );
+  guardarRegistros(CLAVE_VETERINARIOS, actualizados);
+  renderizarTabla();
+  modalEditarVeterinario.hide();
+});
+
+elementoModalEditarVeterinario.addEventListener("hidden.bs.modal", () => {
+  idVeterinarioEditando = null;
+  formEditarVeterinario.reset();
 });
 
 // apenas carga la página muestra la tabla
