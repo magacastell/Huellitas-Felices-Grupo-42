@@ -7,6 +7,14 @@ import {
 // clave para guardar los veterinarios en el localstorage
 const CLAVE_VETERINARIOS = "veterinarios";
 
+// Adapta registros anteriores en memoria, sin escribir ni descartar campos.
+function obtenerVeterinarios() {
+  return obtenerRegistros(CLAVE_VETERINARIOS).map((veterinario) => ({
+    ...veterinario,
+    idVeterinario: veterinario.idVeterinario ?? veterinario.id,
+  }));
+}
+
 // guarda el id si se edita un veterinario
 let idVeterinarioEditando = null;
 
@@ -33,13 +41,15 @@ function formatearMoneda(valor) {
 
 // valida los datos del form
 function capturarYValidarDatos(veterinarios) {
-  const matricula = Number.parseInt(inputMatricula.value.trim(), 10);
+  const matriculaIngresada = inputMatricula.value.trim();
+  const matricula = Number(matriculaIngresada);
   const nombre = inputNombre.value.trim();
   const especializacion = inputEspecializacion.value.trim();
-  const valorConsulta = Number.parseFloat(inputValorConsulta.value.trim());
+  const valorIngresado = inputValorConsulta.value.trim();
+  const valorConsulta = Number(valorIngresado);
 
-  if (!Number.isInteger(matricula) || matricula < 1) {
-    alert("Por favor, ingresá un número de matrícula válido (entero mayor a 0).");
+  if (!/^\d+$/.test(matriculaIngresada) || !Number.isSafeInteger(matricula) || matricula < 1) {
+    alert("Por favor, ingresá una matrícula válida (entero positivo y seguro, escrito solo con dígitos).");
     inputMatricula.focus();
     return null;
   }
@@ -56,7 +66,7 @@ function capturarYValidarDatos(veterinarios) {
     return null;
   }
 
-  if (Number.isNaN(valorConsulta) || valorConsulta < 0) {
+  if (valorIngresado === "" || !Number.isFinite(valorConsulta) || valorConsulta < 0) {
     alert("Por favor, ingresá un valor de consulta válido (mayor o igual a 0).");
     inputValorConsulta.focus();
     return null;
@@ -64,7 +74,7 @@ function capturarYValidarDatos(veterinarios) {
 
   // se fija que no haya otro veterinario con la misma matrícula
   const matriculaDuplicada = veterinarios.some(
-    (vet) => vet.matricula === matricula && vet.id !== idVeterinarioEditando
+    (vet) => vet.matricula === matricula && vet.idVeterinario !== idVeterinarioEditando
   );
 
   if (matriculaDuplicada) {
@@ -83,7 +93,7 @@ function capturarYValidarDatos(veterinarios) {
 
 // arma la tabla con los veterinarios guardados y actualiza el contador
 function renderizarTabla() {
-  const veterinarios = obtenerRegistros(CLAVE_VETERINARIOS);
+  const veterinarios = obtenerVeterinarios();
 
   // actualiza el contador
   const cantidad = veterinarios.length;
@@ -130,13 +140,13 @@ function renderizarTabla() {
     btnEditar.type = "button";
     btnEditar.className = "btn btn-sm btn-outline-primary";
     btnEditar.textContent = "Editar";
-    btnEditar.addEventListener("click", () => cargarVeterinarioEnFormulario(vet.id));
+    btnEditar.addEventListener("click", () => cargarVeterinarioEnFormulario(vet.idVeterinario));
 
     const btnEliminar = document.createElement("button");
     btnEliminar.type = "button";
     btnEliminar.className = "btn btn-sm btn-outline-danger";
     btnEliminar.textContent = "Eliminar";
-    btnEliminar.addEventListener("click", () => eliminarVeterinario(vet.id));
+    btnEliminar.addEventListener("click", () => eliminarVeterinario(vet.idVeterinario));
 
     contenedorBotones.appendChild(btnEditar);
     contenedorBotones.appendChild(btnEliminar);
@@ -153,15 +163,15 @@ function renderizarTabla() {
 }
 
 // sube los datos del veterinario al editar
-function cargarVeterinarioEnFormulario(id) {
-  const veterinarios = obtenerRegistros(CLAVE_VETERINARIOS);
-  const veterinario = veterinarios.find((vet) => vet.id === id);
+function cargarVeterinarioEnFormulario(idVeterinario) {
+  const veterinarios = obtenerVeterinarios();
+  const veterinario = veterinarios.find((vet) => vet.idVeterinario === idVeterinario);
 
   if (!veterinario) {
     return;
   }
 
-  idVeterinarioEditando = veterinario.id;
+  idVeterinarioEditando = veterinario.idVeterinario;
   inputMatricula.value = veterinario.matricula;
   inputNombre.value = veterinario.nombre;
   inputEspecializacion.value = veterinario.especializacion;
@@ -173,9 +183,9 @@ function cargarVeterinarioEnFormulario(id) {
 }
 
 // borra un veterinario
-function eliminarVeterinario(id) {
-  const veterinarios = obtenerRegistros(CLAVE_VETERINARIOS);
-  const veterinario = veterinarios.find((vet) => vet.id === id);
+function eliminarVeterinario(idVeterinario) {
+  const veterinarios = obtenerVeterinarios();
+  const veterinario = veterinarios.find((vet) => vet.idVeterinario === idVeterinario);
 
   if (!veterinario) {
     return;
@@ -189,11 +199,11 @@ function eliminarVeterinario(id) {
     return;
   }
 
-  const nuevosRegistros = veterinarios.filter((vet) => vet.id !== id);
+  const nuevosRegistros = veterinarios.filter((vet) => vet.idVeterinario !== idVeterinario);
   guardarRegistros(CLAVE_VETERINARIOS, nuevosRegistros);
 
   // si justo borra el que se estaba editando, limpia el form
-  if (idVeterinarioEditando === id) {
+  if (idVeterinarioEditando === idVeterinario) {
     formVeterinario.reset();
   }
 
@@ -210,7 +220,7 @@ function salirModoEdicion() {
 formVeterinario.addEventListener("submit", (evento) => {
   evento.preventDefault();
 
-  const veterinarios = obtenerRegistros(CLAVE_VETERINARIOS);
+  const veterinarios = obtenerVeterinarios();
   const datosValidos = capturarYValidarDatos(veterinarios);
 
   if (!datosValidos) {
@@ -228,8 +238,8 @@ formVeterinario.addEventListener("submit", (evento) => {
     }
 
     const veterinariosActualizados = veterinarios.map((vet) =>
-      vet.id === idVeterinarioEditando
-        ? { id: idVeterinarioEditando, ...datosValidos }
+      vet.idVeterinario === idVeterinarioEditando
+        ? { ...vet, ...datosValidos }
         : vet
     );
 
@@ -237,7 +247,7 @@ formVeterinario.addEventListener("submit", (evento) => {
   } else {
     // si es uno nuevo le genera el id automático y lo guarda
     const nuevoVeterinario = {
-      id: generarId(),
+      idVeterinario: generarId(),
       ...datosValidos,
     };
 
