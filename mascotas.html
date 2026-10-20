@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
-<body>
+<body class="admin-page">
     <header>
         <div class="barra-superior">
             <div class="container barra-superior-container">
@@ -119,10 +119,10 @@
         </nav>
     </header>
 
-    <main>
-        <section class="section-light">
+    <main class="container admin-main">
+        <section class="admin-intro">
             <div class="container">
-                <h2>Gestión de Mascotas</h2>
+                <h1>Gestión de Mascotas</h1>
                 <p>
                     Registrá y administrá las mascotas de nuestra veterinaria.
                     Podés agregar nuevos registros, consultar los existentes
@@ -131,9 +131,9 @@
             </div>
         </section>
 
-        <section class="container py-4">
-            <div class="card p-4 p-md-5 shadow-sm border-0">
-                <h3 class="mb-4">Registrar mascota</h3>
+        <section class="admin-section">
+            <div class="card admin-form-card">
+                <h2 class="h4 mb-4">Registrar mascota</h2>
 
                 <form id="formularioMascota">
                     <div class="row g-3">
@@ -201,12 +201,12 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-end align-items-center gap-3 mt-4">
-                        <button type="reset" class="btn btn-link text-secondary text-decoration-none fw-bold">
+                    <div class="admin-form-actions mt-4">
+                        <button type="reset" class="btn admin-btn-neutral">
                             Limpiar
                         </button>
 
-                        <button type="submit" class="btn btn-prueba">
+                        <button type="submit" class="btn admin-btn-primary">
                             Guardar mascota
                         </button>
                     </div>
@@ -214,25 +214,25 @@
             </div>
         </section>
 
-        <section class="container py-4">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="mb-0">Mascotas registradas</h3>
+        <section class="admin-section">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <h2 class="h4 mb-0">Mascotas registradas</h2>
 
-                <span class="badge bg-secondary" id="contadorMascotas">
+                <span class="badge admin-counter" id="contadorMascotas">
                     0 mascotas
                 </span>
             </div>
 
-            <div class="table-responsive">
-                <table class="table table-striped align-middle">
-                    <thead>
+            <div class="table-responsive admin-table-wrap" role="region" aria-label="Tabla de mascotas; desplazamiento horizontal" tabindex="0">
+                <table class="table table-striped table-hover align-middle admin-table">
+                    <thead class="table-light">
                         <tr>
-                            <th>Nombre</th>
-                            <th>Dueño</th>
-                            <th>Color</th>
-                            <th>Edad</th>
-                            <th>Peso (kg)</th>
-                            <th>Acciones</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Dueño</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Peso (kg)</th>
+                            <th scope="col">Acciones</th>
                         </tr>
                     </thead>
 
@@ -249,7 +249,7 @@
 
     <div class="modal fade" id="modalEditarMascota" tabindex="-1"
         aria-labelledby="tituloModalEditar" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
 
                 <form id="formularioEditarMascota">
@@ -306,12 +306,12 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
+                        <button type="button" class="btn admin-btn-neutral"
                             data-bs-dismiss="modal">
                             Cancelar
                         </button>
 
-                        <button type="submit" class="btn btn-prueba">
+                        <button type="submit" class="btn admin-btn-primary">
                             Guardar cambios
                         </button>
                     </div>

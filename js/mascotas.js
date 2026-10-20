@@ -100,16 +100,17 @@ function mostrarMascotas() {
                 fila.appendChild(celda);
             });
         const acciones = document.createElement("td");
+        acciones.className = "admin-actions";
         const botonEditar = document.createElement("button");
         botonEditar.type = "button";
-        botonEditar.className = "btn btn-sm btn-warning btn-editar";
+        botonEditar.className = "btn btn-sm admin-btn-edit btn-editar";
         botonEditar.textContent = "Editar";
         botonEditar.addEventListener("click", function () {
             editarMascota(mascota.idMascota);
         });
         const botonEliminar = document.createElement("button");
         botonEliminar.type = "button";
-        botonEliminar.className = "btn btn-sm btn-danger btn-eliminar";
+        botonEliminar.className = "btn btn-sm admin-btn-delete btn-eliminar";
         botonEliminar.textContent = "Eliminar";
         botonEliminar.addEventListener("click", function () {
             const confirmar = confirm(

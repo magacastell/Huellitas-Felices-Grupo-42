@@ -1212,3 +1212,36 @@ footer a:hover {
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(118, 85, 143, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
+/* ---------- ADMINISTRACIÓN: MASCOTAS Y VETERINARIOS ---------- */
+.admin-page .admin-main { padding-top: 2.5rem; padding-bottom: 3rem; min-width: 0; }
+.admin-page .admin-intro { padding: 0 0 2rem; }
+.admin-page .admin-intro > .container { padding: 0; max-width: none; }
+.admin-page .admin-intro h1 { font-weight: 700; margin-bottom: .75rem; }
+.admin-page .admin-intro p { max-width: 48rem; margin-bottom: 0; }
+.admin-page .admin-section { padding: 0; margin-bottom: 2rem; min-width: 0; }
+.admin-page .admin-form-card { padding: 2rem; border: 1px solid #eadff0; box-shadow: 0 6px 18px rgba(52,45,61,.06); }
+.admin-page .admin-form-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .75rem; }
+.admin-page .admin-counter { background: #F4EDF8; color: var(--color-violeta); padding: .65rem .85rem; white-space: normal; }
+.admin-page .admin-table-wrap { border: 1px solid #eadff0; border-radius: var(--radio-borde); background: var(--color-blanco); max-width: 100%; }
+.admin-page .admin-table { margin-bottom: 0; min-width: 40rem; --bs-table-striped-bg: #faf7fc; --bs-table-hover-bg: #EAF7F6; }
+.admin-page .admin-table th { color: var(--color-violeta); }
+.admin-page .admin-table td, .admin-page .admin-table th { padding: .9rem; overflow-wrap: anywhere; }
+.admin-page .admin-table td:not(:last-child) { max-width: 18rem; }
+.admin-page .admin-table .admin-actions { min-width: 11.5rem; white-space: nowrap; }
+.admin-page .admin-action-buttons { display: flex; gap: .5rem; }
+.admin-page .admin-actions .btn { padding: .5rem .75rem; font-size: .875rem; min-height: 44px; }
+.admin-page .admin-btn-primary { --bs-btn-color: #fff; --bs-btn-bg: var(--color-violeta); --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #634579; --bs-btn-active-color: #fff; --bs-btn-active-bg: #634579; }
+.admin-page .admin-btn-neutral { --bs-btn-color: var(--color-texto); --bs-btn-bg: #f3f0f5; --bs-btn-hover-color: var(--color-texto); --bs-btn-hover-bg: #e6e0eb; --bs-btn-active-bg: #e6e0eb; }
+.admin-page .admin-btn-edit { --bs-btn-color: var(--color-verde-oscuro); --bs-btn-bg: #EAF7F6; --bs-btn-hover-color: var(--color-verde-oscuro); --bs-btn-hover-bg: #ccecea; --bs-btn-active-bg: #ccecea; }
+.admin-page .admin-btn-delete { --bs-btn-color: #79445e; --bs-btn-bg: #f6eaf0; --bs-btn-hover-color: #65364e; --bs-btn-hover-bg: #ecd5e0; --bs-btn-active-bg: #ecd5e0; }
+.admin-page .admin-btn-primary:focus-visible, .admin-page .admin-btn-neutral:focus-visible,
+.admin-page .admin-btn-edit:focus-visible, .admin-page .admin-btn-delete:focus-visible { outline: 3px solid var(--color-lila); outline-offset: 2px; }
+.admin-page .modal form { gap: 0; }
+.admin-page .modal-dialog-scrollable .modal-content > form { min-height: 0; overflow: hidden; }
+.admin-page .modal-footer { gap: .5rem; }
+@media (max-width: 576px) {
+    .admin-page .admin-main { padding-top: 1.5rem; }
+    .admin-page .admin-form-card { padding: 1.25rem; }
+    .admin-page .admin-form-actions > .btn { flex: 1 1 100%; }
+    .admin-page .modal-footer > .btn { flex: 1 1 100%; margin: 0; }
+}
