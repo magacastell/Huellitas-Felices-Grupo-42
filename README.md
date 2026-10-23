@@ -8,7 +8,7 @@ Integrantes del grupo:
     5. MERCADO ROJAS, Juan Ignacio
 
 #Instrucciones para levantar el proyecto
-Como el desarrollo está configurado con Vite y utiliza rutas absolutas orientadas a la raíz del sitio, no se puede visualizar abriendo el archivo index.html directamente con doble clic. Es necesario correrlo mediante el servidor de desarrollo local.
+El proyecto utiliza rutas relativas para sus recursos y módulos JavaScript. Para probarlo, es necesario usar el servidor de desarrollo de Vite, que también sirve los archivos de public/ (por ejemplo, favicon.ico). Abrir index.html directamente con doble clic no reproduce ese entorno.
 
 Para probar la aplicación en la máquina, seguir estos pasos desde la terminal:
 

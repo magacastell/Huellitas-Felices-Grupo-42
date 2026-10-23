@@ -1,4 +1,3 @@
-
 /*
  * Funciones compartidas para gestionar LocalStorage.
  *

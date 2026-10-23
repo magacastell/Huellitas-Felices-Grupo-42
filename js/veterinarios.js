@@ -5,10 +5,8 @@ import {
   buscarRegistroUnico,
 } from "./storage.js";
 
-// clave para guardar los veterinarios en el localstorage
 const CLAVE_VETERINARIOS = "veterinarios";
 
-// Adapta registros anteriores en memoria, sin escribir ni descartar campos.
 function obtenerVeterinarios() {
   return obtenerRegistros(CLAVE_VETERINARIOS).map((veterinario) => ({
     ...veterinario,
@@ -16,10 +14,8 @@ function obtenerVeterinarios() {
   }));
 }
 
-// guarda el id si se edita un veterinario
 let idVeterinarioEditando = null;
 
-// elementos del dom que trae del html
 const formVeterinario = document.getElementById("formVeterinario");
 const formEditarVeterinario = document.getElementById("formEditarVeterinario");
 const elementoModalEditarVeterinario = document.getElementById("modalEditarVeterinario");
@@ -27,18 +23,15 @@ const modalEditarVeterinario = new bootstrap.Modal(elementoModalEditarVeterinari
 const tablaVeterinarios = document.getElementById("tablaVeterinarios");
 const totalVeterinarios = document.getElementById("totalVeterinarios");
 
-// para pasar el precio a formato pesos
 const formateadorMoneda = new Intl.NumberFormat("es-AR", {
   style: "currency",
   currency: "ARS",
 });
 
-// formato de moneda
 function formatearMoneda(valor) {
   return formateadorMoneda.format(Number(valor) || 0);
 }
 
-// valida los datos del form
 function capturarYValidarDatos(veterinarios, editando = false) {
   const inputMatricula = document.getElementById(editando ? "editarMatricula" : "matricula");
   const inputNombre = document.getElementById(editando ? "editarNombre" : "nombre");
@@ -75,7 +68,6 @@ function capturarYValidarDatos(veterinarios, editando = false) {
     return null;
   }
 
-  // se fija que no haya otro veterinario con la misma matrícula
   const matriculaDuplicada = veterinarios.some(
     (vet) => vet.matricula === matricula && vet.idVeterinario !== (editando ? idVeterinarioEditando : null)
   );
@@ -94,7 +86,6 @@ function capturarYValidarDatos(veterinarios, editando = false) {
   };
 }
 
-// arma la tabla con los veterinarios guardados y actualiza el contador
 function renderizarTabla() {
   const veterinarios = obtenerVeterinarios();
 
@@ -104,10 +95,8 @@ function renderizarTabla() {
     cantidad === 1 ? "veterinario" : "veterinarios"
   }`;
 
-  // vacía la tabla antes de volver a cargarla
   tablaVeterinarios.innerHTML = "";
 
-  // si no hay ningún veterinario cargado muestra un cartel
   if (cantidad === 0) {
     const filaVacia = document.createElement("tr");
     const celdaVacia = document.createElement("td");
@@ -119,7 +108,6 @@ function renderizarTabla() {
     return;
   }
 
-  // arma una fila por cada veterinario
   veterinarios.forEach((vet) => {
     const fila = document.createElement("tr");
 
@@ -166,7 +154,6 @@ function renderizarTabla() {
   });
 }
 
-// Carga la edición en el modal, sin alterar el formulario de alta.
 function editarVeterinario(idVeterinario) {
   const veterinarios = obtenerVeterinarios();
   const veterinario = buscarRegistroUnico(veterinarios, "idVeterinario", idVeterinario);
@@ -183,7 +170,6 @@ function editarVeterinario(idVeterinario) {
   modalEditarVeterinario.show();
 }
 
-// borra un veterinario
 function eliminarVeterinario(idVeterinario) {
   const veterinarios = obtenerVeterinarios();
   const veterinario = buscarRegistroUnico(veterinarios, "idVeterinario", idVeterinario);
@@ -203,7 +189,6 @@ function eliminarVeterinario(idVeterinario) {
   const nuevosRegistros = veterinarios.filter((vet) => vet.idVeterinario !== idVeterinario);
   if (!guardarRegistros(CLAVE_VETERINARIOS, nuevosRegistros)) return;
 
-  // si justo borra el que se estaba editando, limpia el form
   if (idVeterinarioEditando === idVeterinario) {
     modalEditarVeterinario.hide();
   }
@@ -211,7 +196,6 @@ function eliminarVeterinario(idVeterinario) {
   renderizarTabla();
 }
 
-// El formulario superior siempre registra un veterinario nuevo.
 formVeterinario.addEventListener("submit", (evento) => {
   evento.preventDefault();
   const veterinarios = obtenerVeterinarios();
@@ -243,7 +227,6 @@ elementoModalEditarVeterinario.addEventListener("hidden.bs.modal", () => {
   formEditarVeterinario.reset();
 });
 
-// apenas carga la página muestra la tabla
 document.addEventListener("DOMContentLoaded", () => {
   renderizarTabla();
 });

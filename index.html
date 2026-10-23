@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,460 +11,458 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- css nuestro -->
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
 
-<body>
+  <body>
 
     <header>
 
-        <!-- Barra superior -->
-        <div class="barra-superior">
-            <div class="container barra-superior-container">
+      <!-- Barra superior -->
+      <div class="barra-superior">
+        <div class="container barra-superior-container">
 
-                <div class="barra-info">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                        </svg>
+          <div class="barra-info">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path
+                  d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+              </svg>
 
-                        Av. Los Ceibos 1420, Concordia
-                    </span>
+              Av. Los Ceibos 1420, Concordia
+            </span>
 
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-clock-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                        </svg>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-clock-fill" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+              </svg>
 
-                        Lun a Vie: 08:00 - 20:00 hs | Sáb: 09:00 - 13:00 hs
-                    </span>
-                </div>
+              Lun a Vie: 08:00 - 20:00 hs | Sáb: 09:00 - 13:00 hs
+            </span>
+          </div>
 
-                <div class="barra-telefono">
-                    <a href="tel:+543456124700">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-                        </svg>
+          <div class="barra-telefono">
+            <a href="tel:+543456124700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+              </svg>
 
-                        +54 9 345 612-4700
-                    </a>
-                </div>
+              +54 9 345 612-4700
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Navegación principal -->
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <!-- Logo -->
+          <a href="./index.html" class="navbar-brand enlace-logo">
+            <div class="logo">
+
+              <img src="./favicon.ico" alt="Logo de Huellitas Felices">
+              <div class="texto-logo">
+                <h1>Huellitas Felices</h1>
+                <p>VETERINARIA & BIENESTAR</p>
+              </div>
 
             </div>
-        </div>
+          </a>
 
-        <!-- Navegación principal -->
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
+          <!-- Botón hamburguesa -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHuellitas"
+            aria-controls="navbarHuellitas" aria-expanded="false" aria-label="Abrir menú de navegación">
 
-                <!-- Logo -->
-                <a href="./index.html" class="navbar-brand enlace-logo">
-                    <div class="logo">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-                        <img src="/favicon.ico" alt="Logo de Huellitas Felices">
-                        <div class="texto-logo">
-                            <h1>Huellitas Felices</h1>
-                            <p>VETERINARIA & BIENESTAR</p>
-                        </div>
+          <!-- Menú -->
+          <div class="collapse navbar-collapse" id="navbarHuellitas">
 
-                    </div>
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+              <li class="nav-item">
+                <a href="./index.html" class="nav-link activo" aria-current="page">
+                  Inicio
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="./institucional.html" class="nav-link">
+                  Nosotros
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="./contacto.html" class="nav-link">
+                  Contacto
+                </a>
+              </li>
+
+              <!-- Menú desplegable de Administración -->
+              <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownAdministracion" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Administración
                 </a>
 
-                <!-- Botón hamburguesa -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHuellitas"
-                    aria-controls="navbarHuellitas" aria-expanded="false" aria-label="Abrir menú de navegación">
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAdministracion">
 
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                  <li>
+                    <a class="dropdown-item" href="./mascotas.html">
+                      Mascotas
+                    </a>
+                  </li>
 
-                <!-- Menú -->
-                <div class="collapse navbar-collapse" id="navbarHuellitas">
+                  <li>
+                    <a class="dropdown-item" href="./veterinarios.html">
+                      Veterinarios
+                    </a>
+                  </li>
 
-                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                </ul>
 
-                        <li class="nav-item">
-                            <a href="./index.html" class="nav-link activo" aria-current="page">
-                                Inicio
-                            </a>
-                        </li>
+              </li>
 
-                        <li class="nav-item">
-                            <a href="./institucional.html" class="nav-link">
-                                Nosotros
-                            </a>
-                        </li>
+              <li class="nav-item">
+                <a href="./contacto.html#formulario" class="nav-link btn-prueba">
+                  Pedir turno
+                </a>
+              </li>
 
-                        <li class="nav-item">
-                            <a href="./contacto.html" class="nav-link">
-                                Contacto
-                            </a>
-                        </li>
+            </ul>
 
+          </div>
 
-                        <!-- Menú desplegable de Administración -->
-                        <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownAdministracion" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Administración
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAdministracion">
-
-                                <li>
-                                    <a class="dropdown-item" href="./mascotas.html">
-                                        Mascotas
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item" href="./veterinarios.html">
-                                        Veterinarios
-                                    </a>
-                                </li>
-
-                            </ul>
-
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="./contacto.html#formulario" class="nav-link btn-prueba">
-                                Pedir turno
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-        </nav>
+        </div>
+      </nav>
 
     </header>
 
     <main>
-        <section class="hero section-lila">
-            <div class="container hero-container">
-                <div class="hero-texto">
-                    <span class="hero-badge">💜 Atención veterinaria cálida, cercana y profesional</span>
+      <section class="hero section-lila">
+        <div class="container hero-container">
+          <div class="hero-texto">
+            <span class="hero-badge">💜 Atención veterinaria cálida, cercana y profesional</span>
 
-                    <h1>
-                        Cuidamos sus huellitas como
-                        <span class="texto-violeta">parte de tu familia</span>
-                    </h1>
+            <h1>
+              Cuidamos sus huellitas como
+              <span class="texto-violeta">parte de tu familia</span>
+            </h1>
 
-                    <p>
-                        En <strong>Veterinaria Huellitas Felices</strong> brindamos
-                        atención médica profesional, cercana y libre de estrés para
-                        perros y gatos.
-                    </p>
+            <p>
+              En <strong>Veterinaria Huellitas Felices</strong> brindamos
+              atención médica profesional, cercana y libre de estrés para
+              perros y gatos.
+            </p>
 
-                    <a href="#profesionales" class="btn btn-primary">
-                        Ver profesionales y tarifas
-                    </a>
+            <a href="#profesionales" class="btn btn-primary">
+              Ver profesionales y tarifas
+            </a>
 
-                    <a href="./contacto.html#formulario" class="btn btn-secondary">
-                        Pedir turno
-                    </a>
+            <a href="./contacto.html#formulario" class="btn btn-secondary">
+              Pedir turno
+            </a>
+          </div>
+
+          <div class="hero-imagen">
+            <img src="./assets/images/alec-favale-Ivzo69e18nk-unsplash.jpg"
+              alt="Atención veterinaria a una mascota">
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="hero-estadisticas">
+            <div class="estadistica-item">
+              <span class="numero-stat">+10</span>
+              <p>Años de trayectoria</p>
+            </div>
+            <div class="estadistica-item">
+              <span class="numero-stat">4</span>
+              <p>Médicos matriculados</p>
+            </div>
+            <div class="estadistica-item">
+              <span class="numero-stat">100%</span>
+              <p>Manejo sin estrés</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Sección Quiénes Somos (Vista previa) -->
+      <section class="section-violeta">
+        <div class="container">
+          <div class="quienes-somos-preview-card">
+            <span class="hero-badge">¿Quiénes Somos?</span>
+            <h2>Más de una década acompañando a las familias y sus compañeros</h2>
+            <p>
+              Veterinaria Huellitas Felices nació como un proyecto vocacional con un objetivo transparente:
+              brindar una medicina animal rigurosa, cercana y libre de miedos, donde cada tutor se sienta
+              acompañado y escuchado con tranquilidad...
+            </p>
+            <div class="d-flex justify-content-end">
+              <a href="./institucional.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-light">
+        <div class="container">
+          <div class="section-title">
+            <div class="titulo-con-lineas">
+              <span class="hero-badge" style="font-size: 1.25rem;">Sobre nosotros</span>
+            </div>
+            <h2>Un cuidado pensado para tu mascota</h2>
+            <p>
+              Nuestra misión es cuidar la salud integral de tus mascotas
+              con profesionalismo, cariño y dedicación.
+            </p>
+          </div>
+
+          <!-- Tarjetas -->
+          <div class="cards-container">
+
+            <article class="card tarjeta-razon">
+              <div class="icono-razon icono-morado">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3>Atención Cálida y Sin Prisas</h3>
+              <p>Consultas con tiempo para escuchar y acariciar a tu mascota, reduciendo el estrés en cada
+                visita.</p>
+            </article>
+
+            <article class="card tarjeta-razon">
+              <div class="icono-razon icono-turquesa">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3>Horarios Pensados para Vos</h3>
+              <p>Lunes a viernes de 08:00 a 20:00 hs y sábados 09:00 a 13:00 hs. Domingos y feriados contamos
+                con guardias programadas.</p>
+
+            </article>
+
+            <article class="card tarjeta-razon">
+              <div class="icono-razon icono-morado">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3>Profesionales Comprometidos</h3>
+              <p>Veterinarios matriculados que combinan rigurosidad médica con un trato afectuoso.</p>
+            </article>
+
+            <article class="card tarjeta-razon">
+              <div class="icono-razon icono-turquesa">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <h3>Ambiente Hogareño y Limpio</h3>
+              <p>Espacios cómodos, ventilados e higienizados donde las mascotas se sienten como en casa.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-lila">
+        <div class="container">
+          <div class="servicios-encabezado">
+            <span class="hero-badge">Atención integral</span>
+            <h2>Servicios médicos y de bienestar</h2>
+            <p>
+              Todo lo necesario para acompañar a tu mascota en cada etapa
+              de su vida.
+            </p>
+          </div>
+
+          <div class="servicios-grid">
+            <article class="servicio-card">
+              <img src="./assets/images/Gemini_Generated_Image_d0tw5ld0tw5ld0tw.jpg"
+                alt="Consulta veterinaria">
+
+              <span class="servicio-badge">Medicina preventiva</span>
+
+              <div class="servicio-icono">♥</div>
+
+              <h3>Consultas clínicas</h3>
+              <p>
+                Evaluaciones generales, controles de salud y seguimiento
+                personalizado.
+              </p>
+            </article>
+
+            <article class="servicio-card">
+              <img src="./assets/images/alvan-nee-T-0EW-SEbsE-unsplash.jpg" alt="Perro durante una consulta">
+
+              <span class="servicio-badge">Inmunización</span>
+
+              <div class="servicio-icono">✓</div>
+
+              <h3>Vacunación</h3>
+              <p>
+                Planes de vacunación y desparasitación adaptados a cada
+                mascota.
+              </p>
+            </article>
+
+            <article class="servicio-card">
+              <img src="./assets/images/victor-g-N04FIfHhv_k-unsplash.jpg"
+                alt="Mascota en atención veterinaria">
+
+              <span class="servicio-badge">Cirugía segura</span>
+
+              <div class="servicio-icono">✚</div>
+
+              <h3>Cirugías y esterilizaciones</h3>
+              <p>
+                Procedimientos seguros con seguimiento profesional antes
+                y después de la intervención.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- profesionales  -->
+
+      <section id="profesionales" class="section-light">
+        <div class="container">
+          <div class="section-title">
+            <div class="titulo-con-lineas">
+              <span class="hero-badge" style="font-size: 1.25rem;">Nuestro equipo</span>
+            </div>
+            <h2>Profesionales disponibles</h2>
+            <p>Especialistas comprometidos con el bienestar animal.</p>
+          </div>
+
+          <!-- Grilla de veterinarios -->
+          <div class="row g-4">
+
+            <!-- Vet-1 -->
+            <div class="col-12 col-md-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="./assets/images/veterinaria1.jpeg" class="card-img-top" alt="Dra. Laura Gómez">
+                <div class="card-body">
+                  <h3 class="h5">Dra. Laura Gómez</h3>
+                  <p class="text-muted">Medicina General</p>
+                  <p><strong>M.N. 8421 / M.P. 5120</strong></p>
+                  <p class="mb-0">Valor de consulta: $15.000</p>
                 </div>
-
-                <div class="hero-imagen">
-                    <img src="/assets/images/alec-favale-Ivzo69e18nk-unsplash.jpg"
-                        alt="Atención veterinaria a una mascota">
-                </div>
+              </div>
             </div>
 
-            <div class="container">
-                <div class="hero-estadisticas">
-                    <div class="estadistica-item">
-                        <span class="numero-stat">+10</span>
-                        <p>Años de trayectoria</p>
-                    </div>
-                    <div class="estadistica-item">
-                        <span class="numero-stat">4</span>
-                        <p>Médicos matriculados</p>
-                    </div>
-                    <div class="estadistica-item">
-                        <span class="numero-stat">100%</span>
-                        <p>Manejo sin estrés</p>
-                    </div>
+            <!-- Vet-2 -->
+            <div class="col-12 col-md-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="./assets/images/veterinario.jpeg" class="card-img-top" alt="Dr. Carlos Ruiz">
+                <div class="card-body">
+                  <h3 class="h5">Dr. Carlos Ruiz</h3>
+                  <p class="text-muted">Cirugía Veterinaria</p>
+                  <p><strong>M.N. 6310 / M.P. 4088</strong></p>
+                  <p class="mb-0">Valor de consulta: $20.000</p>
                 </div>
+              </div>
             </div>
 
-        </section>
-
-        <!-- Sección Quiénes Somos (Vista previa) -->
-        <section class="section-violeta">
-            <div class="container">
-                <div class="quienes-somos-preview-card">
-                    <span class="hero-badge">¿Quiénes Somos?</span>
-                    <h2>Más de una década acompañando a las familias y sus compañeros</h2>
-                    <p>
-                        Veterinaria Huellitas Felices nació como un proyecto vocacional con un objetivo transparente:
-                        brindar una medicina animal rigurosa, cercana y libre de miedos, donde cada tutor se sienta
-                        acompañado y escuchado con tranquilidad...
-                    </p>
-                    <div class="d-flex justify-content-end">
-                        <a href="./institucional.html" class="btn btn-primary">Ver más</a>
-                    </div>
+            <!-- Vet-3 -->
+            <div class="col-12 col-md-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="./assets/images/veterinaria2.jpeg" class="card-img-top" alt="Dra. Sofía Martínez">
+                <div class="card-body">
+                  <h3 class="h5">Dra. Sofía Martínez</h3>
+                  <p class="text-muted">Dermatología Animal</p>
+                  <p><strong>M.N. 9942 / M.P. 6712</strong></p>
+                  <p class="mb-0">Valor de consulta: $18.000</p>
                 </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section class="section-light">
-            <div class="container">
-                <div class="section-title">
-                    <div class="titulo-con-lineas">
-                        <span class="hero-badge" style="font-size: 1.25rem;">Sobre nosotros</span>
-                    </div>
-                    <h2>Un cuidado pensado para tu mascota</h2>
-                    <p>
-                        Nuestra misión es cuidar la salud integral de tus mascotas
-                        con profesionalismo, cariño y dedicación.
-                    </p>
-                </div>
-
-                <!-- Tarjetas -->
-                <div class="cards-container">
-
-                    <article class="card tarjeta-razon">
-                        <div class="icono-razon icono-morado">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                            </svg>
-                        </div>
-                        <h3>Atención Cálida y Sin Prisas</h3>
-                        <p>Consultas con tiempo para escuchar y acariciar a tu mascota, reduciendo el estrés en cada
-                            visita.</p>
-                    </article>
-
-                    <article class="card tarjeta-razon">
-                        <div class="icono-razon icono-turquesa">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3>Horarios Pensados para Vos</h3>
-                        <p>Lunes a viernes de 08:00 a 20:00 hs y sábados 09:00 a 13:00 hs. Domingos y feriados contamos
-                            con guardias programadas.</p>
-
-                    </article>
-
-                    <article class="card tarjeta-razon">
-                        <div class="icono-razon icono-morado">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
-                        </div>
-                        <h3>Profesionales Comprometidos</h3>
-                        <p>Veterinarios matriculados que combinan rigurosidad médica con un trato afectuoso.</p>
-                    </article>
-
-                    <article class="card tarjeta-razon">
-                        <div class="icono-razon icono-turquesa">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
-                        </div>
-                        <h3>Ambiente Hogareño y Limpio</h3>
-                        <p>Espacios cómodos, ventilados e higienizados donde las mascotas se sienten como en casa.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-lila">
-            <div class="container">
-                <div class="servicios-encabezado">
-                    <span class="hero-badge">Atención integral</span>
-                    <h2>Servicios médicos y de bienestar</h2>
-                    <p>
-                        Todo lo necesario para acompañar a tu mascota en cada etapa
-                        de su vida.
-                    </p>
-                </div>
-
-                <div class="servicios-grid">
-                    <article class="servicio-card">
-                        <img src="/assets/images/Gemini_Generated_Image_d0tw5ld0tw5ld0tw.jpg"
-                            alt="Consulta veterinaria">
-
-                        <span class="servicio-badge">Medicina preventiva</span>
-
-                        <div class="servicio-icono">♥</div>
-
-                        <h3>Consultas clínicas</h3>
-                        <p>
-                            Evaluaciones generales, controles de salud y seguimiento
-                            personalizado.
-                        </p>
-                    </article>
-
-                    <article class="servicio-card">
-                        <img src="/assets/images/alvan-nee-T-0EW-SEbsE-unsplash.jpg" alt="Perro durante una consulta">
-
-                        <span class="servicio-badge">Inmunización</span>
-
-                        <div class="servicio-icono">✓</div>
-
-                        <h3>Vacunación</h3>
-                        <p>
-                            Planes de vacunación y desparasitación adaptados a cada
-                            mascota.
-                        </p>
-                    </article>
-
-                    <article class="servicio-card">
-                        <img src="/assets/images/victor-g-N04FIfHhv_k-unsplash.jpg"
-                            alt="Mascota en atención veterinaria">
-
-                        <span class="servicio-badge">Cirugía segura</span>
-
-                        <div class="servicio-icono">✚</div>
-
-                        <h3>Cirugías y esterilizaciones</h3>
-                        <p>
-                            Procedimientos seguros con seguimiento profesional antes
-                            y después de la intervención.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- profesionales  -->
-
-        <section id="profesionales" class="section-light">
-            <div class="container">
-                <div class="section-title">
-                    <div class="titulo-con-lineas">
-                        <span class="hero-badge" style="font-size: 1.25rem;">Nuestro equipo</span>
-                    </div>
-                    <h2>Profesionales disponibles</h2>
-                    <p>Especialistas comprometidos con el bienestar animal.</p>
-                </div>
-
-                <!-- Grilla de veterinarios -->
-                <div class="row g-4">
-
-                    <!-- Vet-1 -->
-                    <div class="col-12 col-md-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/assets/images/veterinaria1.jpeg" class="card-img-top" alt="Dra. Laura Gómez">
-                            <div class="card-body">
-                                <h3 class="h5">Dra. Laura Gómez</h3>
-                                <p class="text-muted">Medicina General</p>
-                                <p><strong>M.N. 8421 / M.P. 5120</strong></p>
-                                <p class="mb-0">Valor de consulta: $15.000</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Vet-2 -->
-                    <div class="col-12 col-md-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/assets/images/veterinario.jpeg" class="card-img-top" alt="Dr. Carlos Ruiz">
-                            <div class="card-body">
-                                <h3 class="h5">Dr. Carlos Ruiz</h3>
-                                <p class="text-muted">Cirugía Veterinaria</p>
-                                <p><strong>M.N. 6310 / M.P. 4088</strong></p>
-                                <p class="mb-0">Valor de consulta: $20.000</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Vet-3 -->
-                    <div class="col-12 col-md-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/assets/images/veterinaria2.jpeg" class="card-img-top" alt="Dra. Sofía Martínez">
-                            <div class="card-body">
-                                <h3 class="h5">Dra. Sofía Martínez</h3>
-                                <p class="text-muted">Dermatología Animal</p>
-                                <p><strong>M.N. 9942 / M.P. 6712</strong></p>
-                                <p class="mb-0">Valor de consulta: $18.000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="turno" class="cta">
-            <div class="container cta-contenido">
-                <div class="cta-texto">
-                    <span class="hero-badge">Estamos para ayudarte</span>
-                    <h2>¿Querés agendar una consulta?</h2>
-                    <p>
-                        Reservá tu turno y asegurale la mejor atención a tu compañero.
-                    </p>
-                    <a href="./contacto.html" class="btn-prueba">Solicitar turno</a>
-                </div>
-            </div>
-        </section>
+      <section id="turno" class="cta">
+        <div class="container cta-contenido">
+          <div class="cta-texto">
+            <span class="hero-badge">Estamos para ayudarte</span>
+            <h2>¿Querés agendar una consulta?</h2>
+            <p>
+              Reservá tu turno y asegurale la mejor atención a tu compañero.
+            </p>
+            <a href="./contacto.html" class="btn-prueba">Solicitar turno</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="footer-container">
+      <div class="footer-container">
 
-            <div>
-                <h3>Huellitas Felices</h3>
-                <p>Veterinaria y cuidado animal con compromiso y dedicación.</p>
-            </div>
-
-            <div>
-                <h3>Navegación</h3>
-                <p><a href="./index.html">Inicio</a></p>
-                <p><a href="./institucional.html">Nosotros</a></p>
-                <p><a href="./contacto.html">Contacto</a></p>
-            </div>
-
-            <div>
-                <h3>Horarios</h3>
-                <p>Lunes a viernes: 08:00 a 20:00 hs.</p>
-                <p>Sábados: 09:00 a 13:00 hs.</p>
-                <p>Domingos y feriados: Guardias programadas.</p>
-            </div>
-
-            <div>
-                <h3>Contacto</h3>
-                <p>Av. Los Ceibos 1420</p>
-                <p>Concordia, Entre Ríos</p>
-
-                <p>
-                    <a href="tel:+543456124700">
-                        +54 9 345 612-4700
-                    </a>
-                </p>
-
-                <p>
-                    <a href="mailto:hola@huellitasfelices.com">
-                        hola@huellitasfelices.com
-                    </a>
-                </p>
-            </div>
-
+        <div>
+          <h3>Huellitas Felices</h3>
+          <p>Veterinaria y cuidado animal con compromiso y dedicación.</p>
         </div>
+
+        <div>
+          <h3>Navegación</h3>
+          <p><a href="./index.html">Inicio</a></p>
+          <p><a href="./institucional.html">Nosotros</a></p>
+          <p><a href="./contacto.html">Contacto</a></p>
+        </div>
+
+        <div>
+          <h3>Horarios</h3>
+          <p>Lunes a viernes: 08:00 a 20:00 hs.</p>
+          <p>Sábados: 09:00 a 13:00 hs.</p>
+          <p>Domingos y feriados: Guardias programadas.</p>
+        </div>
+
+        <div>
+          <h3>Contacto</h3>
+          <p>Av. Los Ceibos 1420</p>
+          <p>Concordia, Entre Ríos</p>
+
+          <p>
+            <a href="tel:+543456124700">
+              +54 9 345 612-4700
+            </a>
+          </p>
+
+          <p>
+            <a href="mailto:hola@huellitasfelices.com">
+              hola@huellitasfelices.com
+            </a>
+          </p>
+        </div>
+
+      </div>
     </footer>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
     </script>
 
-</body>
+  </body>
 
 </html>
