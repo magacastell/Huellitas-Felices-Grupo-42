@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="visibility: hidden;">
 
   <head>
     <meta charset="UTF-8">
+    <script src="./js/proteger-ruta.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Gestión de Veterinarios | Huellitas Felices</title>
@@ -106,7 +107,7 @@
               </li>
 
               <!-- Menú desplegable de Administración -->
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown d-none" data-nav-sesion>
 
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownAdministracion" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
@@ -126,6 +127,8 @@
                       Veterinarios
                     </a>
                   </li>
+                  <li><a class="dropdown-item" href="./turnos.html">Turnos</a></li>
+                  <li><a class="dropdown-item" href="./historia-clinica.html">Historia Clínica</a></li>
 
                 </ul>
 
@@ -137,6 +140,12 @@
                 </a>
               </li>
 
+              <li class="nav-item" data-nav-publico>
+                <a href="./login.html" class="nav-link">Iniciar sesión</a>
+              </li>
+              <li class="nav-item d-none" data-nav-sesion>
+                <button type="button" class="nav-link" data-cerrar-sesion>Cerrar sesión</button>
+              </li>
             </ul>
 
           </div>
@@ -347,8 +356,14 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script type="module" src="./js/veterinarios.js"></script>
+    <script>
+      // Inserción durante el parseo: conserva la ejecución del módulo antes de DOMContentLoaded.
+      if (protegerRuta()) {
+        document.write('<script type="module" src="./js/veterinarios.js"><\/script>');
+      }
+    </script>
 
+    <script type="module" src="./js/navbar.js"></script>
   </body>
 
 </html>
