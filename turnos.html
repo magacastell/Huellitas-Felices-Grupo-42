@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Turnos | Huellitas Felices</title>
+
+  <link rel="icon" href="./favicon.ico">
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  >
+
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <style>
+    .turnos-section {
+      padding: 3rem 0 4rem;
+    }
+
+    .turnos-card {
+      background: #fff;
+      border: 1px solid #e9dff0;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(65, 45, 79, 0.05);
+    }
+
+    .turnos-heading {
+      color: #79558d;
+    }
+
+    .turnos-btn {
+      background-color: #79558d;
+      border-color: #79558d;
+      color: white;
+    }
+
+    .turnos-btn:hover,
+    .turnos-btn:focus {
+      background-color: #654675;
+      border-color: #654675;
+      color: white;
+    }
+
+    .turnos-counter {
+      color: #269fa3;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ENCABEZADO -->
+  <header>
+
+    <div
+      class="py-2 text-center"
+      style="background-color:#caa8db; color:#175f65;"
+    >
+      <div
+        class="container d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between gap-2 small"
+      >
+        <span>Av. Los Ceibos 1420, Concordia</span>
+        <span>Lun a Vie: 08:00 - 20:00 hs | Sáb: 09:00 - 13:00 hs</span>
+        <span>+54 9 345 612-4700</span>
+      </div>
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <nav
+      class="navbar navbar-expand-lg bg-white border-bottom"
+      aria-label="Navegación principal"
+    >
+      <div class="container py-2">
+
+        <a class="navbar-brand" href="./index.html">
+          <span class="d-block" style="color:#79558d;">
+            Huellitas Felices
+          </span>
+          <span
+            class="d-block small"
+            style="color:#12747b; font-size:.68rem; letter-spacing:.04em;"
+          >
+            VETERINARIA &amp; BIENESTAR
+          </span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menuPrincipal"
+          aria-controls="menuPrincipal"
+          aria-expanded="false"
+          aria-label="Abrir menú"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Inicio</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./institucional.html">Nosotros</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./contacto.html">Contacto</a>
+            </li>
+
+            <li class="nav-item dropdown">
+
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-current="page"
+              >
+                Administración
+              </a>
+
+              <ul class="dropdown-menu">
+
+                <li>
+                  <a class="dropdown-item" href="./mascotas.html">
+                    Mascotas
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="./veterinarios.html">
+                    Veterinarios
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="dropdown-item active"
+                    aria-current="page"
+                    href="./turnos.html"
+                  >
+                    Turnos
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="./historia-clinica.html">
+                    Historia Clínica
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./contacto.html#formulario">
+                Pedir turno
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html">
+                Iniciar sesión
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="admin-page turnos-section">
+
+    <div class="container">
+
+      <div class="mb-4">
+        <h1 class="turnos-heading mb-2">Gestión de Turnos</h1>
+
+        <p class="text-secondary mb-0">
+          Registrá y consultá los turnos de atención veterinaria.
+        </p>
+      </div>
+
+      <!-- FORMULARIO -->
+      <section
+        class="turnos-card admin-form-card p-3 p-md-4 mb-4"
+        aria-labelledby="tituloFormularioTurno"
+      >
+
+        <h2 class="h4 mb-4" id="tituloFormularioTurno">
+          Registrar nuevo turno
+        </h2>
+
+        <div
+          id="mensajeTurnos"
+          class="mb-3"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <form id="formTurno">
+
+          <div class="row g-3">
+
+            <!-- MASCOTA -->
+            <div class="col-12 col-md-6">
+
+              <label for="turnoMascota" class="form-label">
+                Mascota <span class="text-danger">*</span>
+              </label>
+
+              <select
+                class="form-select"
+                id="turnoMascota"
+                name="idMascota"
+                required
+              >
+                <option value="" selected disabled>
+                  Seleccionar mascota
+                </option>
+              </select>
+
+            </div>
+
+            <!-- VETERINARIO -->
+            <div class="col-12 col-md-6">
+
+              <label for="turnoVeterinario" class="form-label">
+                Veterinario <span class="text-danger">*</span>
+              </label>
+
+              <select
+                class="form-select"
+                id="turnoVeterinario"
+                name="idVeterinario"
+                required
+              >
+                <option value="" selected disabled>
+                  Seleccionar veterinario
+                </option>
+              </select>
+
+            </div>
+
+            <!-- FECHA -->
+            <div class="col-12 col-md-6">
+
+              <label for="turnoFecha" class="form-label">
+                Fecha <span class="text-danger">*</span>
+              </label>
+
+              <input
+                class="form-control"
+                type="date"
+                id="turnoFecha"
+                name="fecha"
+                required
+              >
+
+            </div>
+
+            <!-- HORA -->
+            <div class="col-12 col-md-6">
+
+              <label for="turnoHora" class="form-label">
+                Hora <span class="text-danger">*</span>
+              </label>
+
+              <input
+                class="form-control"
+                type="time"
+                id="turnoHora"
+                name="hora"
+                required
+              >
+
+            </div>
+
+            <!-- MOTIVO -->
+            <div class="col-12">
+
+              <label for="turnoMotivo" class="form-label">
+                Motivo de consulta <span class="text-danger">*</span>
+              </label>
+
+              <textarea
+                class="form-control"
+                id="turnoMotivo"
+                name="motivo"
+                rows="3"
+                maxlength="500"
+                placeholder="Describí brevemente el motivo de la consulta"
+                required
+              ></textarea>
+
+            </div>
+
+          </div>
+
+          <div class="d-flex justify-content-end mt-4">
+
+            <button class="btn turnos-btn px-4" type="submit">
+              Registrar turno
+            </button>
+
+          </div>
+
+        </form>
+      </section>
+
+      <!-- LISTADO DE TURNOS -->
+      <section
+        class="turnos-card p-3 p-md-4"
+        aria-labelledby="tituloListadoTurnos"
+      >
+
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3"
+        >
+
+          <h2 class="h4 mb-0" id="tituloListadoTurnos">
+            Turnos registrados
+          </h2>
+
+          <div class="admin-counter" aria-live="polite">
+            Total de turnos:
+            <span class="turnos-counter" id="contadorTurnos">0</span>
+          </div>
+
+        </div>
+
+        <div class="table-responsive">
+
+          <table
+            class="table table-hover align-middle admin-table"
+            id="tablaTurnos"
+          >
+
+            <thead>
+              <tr>
+                <th scope="col">Mascota</th>
+                <th scope="col">Veterinario</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Motivo</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+
+            <tbody id="cuerpoTablaTurnos">
+              <!-- JavaScript insertará las filas aquí -->
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <p
+          class="text-center text-secondary py-3 mb-0"
+          id="mensajeSinTurnos"
+        >
+          Todavía no hay turnos registrados.
+        </p>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MODAL DE ELIMINACIÓN -->
+  <div
+    class="modal fade"
+    id="modalEliminarTurno"
+    tabindex="-1"
+    aria-labelledby="tituloModalEliminarTurno"
+    aria-hidden="true"
+  >
+
+    <div class="modal-dialog modal-dialog-centered">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h2 class="modal-title fs-5" id="tituloModalEliminarTurno">
+            Eliminar turno
+          </h2>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Cerrar"
+          ></button>
+
+        </div>
+
+        <div class="modal-body">
+          ¿Estás seguro de que querés eliminar este turno?
+        </div>
+
+        <div class="modal-footer">
+
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-danger"
+            id="btnConfirmarEliminarTurno"
+          >
+            Confirmar eliminación
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer
+    class="py-4 text-white"
+    style="background-color:#342b3e;"
+  >
+
+    <div class="container d-flex flex-wrap justify-content-between gap-3">
+
+      <div>
+        <strong>Huellitas Felices</strong>
+        <div class="small">Veterinaria &amp; bienestar</div>
+      </div>
+
+      <div class="small">
+        Av. Los Ceibos 1420, Concordia
+      </div>
+
+      <div class="small">
+        Contacto: +54 9 345 612-4700
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- BOOTSTRAP -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- JAVASCRIPT DE TURNOS -->
+  <script type="module" src="./js/turnos.js"></script>
+
+</body>
+</html>
