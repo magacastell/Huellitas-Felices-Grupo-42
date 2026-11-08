@@ -7,8 +7,11 @@
 // Recupera los registros de una entidad.
 const estados = new Map();
 const textoValido = (valor) => typeof valor === "string" && valor.trim() !== "";
-const identificador = (clave, registro) => clave === "mascotas"
-  ? registro.idMascota : registro.idVeterinario ?? registro.id;
+const identificador = (clave, registro) => {
+  if (clave === "mascotas") return registro.idMascota;
+  if (clave === "historiasClinicas") return registro.idHistoriaClinica;
+  return registro.idVeterinario ?? registro.id;
+};
 
 function registroValido(clave, registro) {
   if (!registro || typeof registro !== "object" || Array.isArray(registro)) return false;
@@ -17,6 +20,15 @@ function registroValido(clave, registro) {
     return [registro.nombreMascota, registro.nombreDuenio, registro.color].every(textoValido)
       && Number.isSafeInteger(registro.edad) && registro.edad >= 0
       && Number.isFinite(registro.peso) && registro.peso >= 0;
+  }
+  if (clave === "historiasClinicas") {
+    return [
+      registro.idMascota,
+      registro.idVeterinario,
+      registro.fecha,
+      registro.diagnostico,
+      registro.tratamiento,
+    ].every(textoValido);
   }
   return clave === "veterinarios"
     && Number.isSafeInteger(registro.matricula) && registro.matricula > 0
