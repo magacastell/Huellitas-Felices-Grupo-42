@@ -1,15 +1,7 @@
 // Navegación compartida. La visibilidad del menú no protege el acceso por URL.
 // Para incorporar otra página, usar los mismos atributos data-nav-* y cargar este módulo.
-function haySesion() {
-  try {
-    return Boolean(sessionStorage.getItem("authToken"));
-  } catch {
-    return false;
-  }
-}
-
 function actualizarNavegacion() {
-  const sesionIniciada = haySesion();
+  const sesionIniciada = haySesionValida();
   document.querySelectorAll("[data-nav-sesion]").forEach((elemento) => {
     elemento.classList.toggle("d-none", !sesionIniciada);
   });

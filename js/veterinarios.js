@@ -3,6 +3,7 @@ import {
   guardarRegistros,
   generarId,
   buscarRegistroUnico,
+  puedeEliminarEntidad,
 } from "./storage.js";
 
 const CLAVE_VETERINARIOS = "veterinarios";
@@ -186,6 +187,7 @@ function eliminarVeterinario(idVeterinario) {
     return;
   }
 
+  if (!puedeEliminarEntidad("idVeterinario", idVeterinario)) return;
   const nuevosRegistros = veterinarios.filter((vet) => vet.idVeterinario !== idVeterinario);
   if (!guardarRegistros(CLAVE_VETERINARIOS, nuevosRegistros)) return;
 

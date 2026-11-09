@@ -53,7 +53,10 @@ export function obtenerRegistros(clave) {
     if (new Set(ids).size !== ids.length && (!anterior || anterior.original !== original)) {
       alert(`Hay identificadores duplicados en ${clave}. No se pueden editar ni eliminar los registros ambiguos ni guardar listas con IDs repetidos. Los datos originales se conservan.`);
     }
-    return validos;
+    // Normaliza en memoria sin descartar el ID antiguo ni otros campos.
+    return clave === "veterinarios"
+      ? validos.map((registro) => ({ ...registro, idVeterinario: registro.idVeterinario ?? registro.id }))
+      : validos;
   } catch (error) {
     const anterior = estados.get(clave);
     estados.set(clave, { bloqueado: true });
@@ -109,4 +112,27 @@ export function buscarRegistroUnico(registros, campo, id) {
 // Genera un identificador único para cada registro.
 export function generarId() {
   return crypto.randomUUID();
+}
+
+// Lee los originales para no ignorar relaciones filtradas por otros módulos.
+export function puedeEliminarEntidad(campo, id) {
+  try {
+    for (const clave of ["turnos", "historiasClinicas"]) {
+      const original = localStorage.getItem(clave);
+      const registros = original === null ? [] : JSON.parse(original);
+      if (!Array.isArray(registros) || registros.some((registro) =>
+        !registro || typeof registro !== "object" || !textoValido(registro[campo]))) {
+        throw new Error("No se pudieron comprobar todas las relaciones.");
+      }
+      if (registros.some((registro) => registro[campo] === id)) {
+        const entidad = campo === "idMascota" ? "la mascota" : "el veterinario";
+        alert(`No se puede eliminar ${entidad}: tiene turnos o registros clínicos relacionados.`);
+        return false;
+      }
+    }
+    return true;
+  } catch {
+    alert("No se puede eliminar: no se pudieron verificar los turnos o las historias clínicas. Revisá el almacenamiento e intentá nuevamente. Los datos se conservan.");
+    return false;
+  }
 }

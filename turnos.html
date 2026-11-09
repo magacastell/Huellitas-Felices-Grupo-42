@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/sesion.js"></script>
+  <script src="./js/proteger-ruta.js"></script>
   <title>Gestión de Turnos | Huellitas Felices</title>
 
   <link rel="icon" href="./favicon.ico">
@@ -117,7 +119,7 @@
               <a class="nav-link" href="./contacto.html">Contacto</a>
             </li>
 
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown d-none" data-nav-sesion>
 
               <a
                 class="nav-link dropdown-toggle active"
@@ -169,10 +171,13 @@
               </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" data-nav-publico>
               <a class="nav-link" href="./login.html">
                 Iniciar sesión
               </a>
+            </li>
+            <li class="nav-item d-none" data-nav-sesion>
+              <button type="button" class="nav-link" data-cerrar-sesion>Cerrar sesión</button>
             </li>
 
           </ul>
@@ -469,7 +474,12 @@
   ></script>
 
   <!-- JAVASCRIPT DE TURNOS -->
-  <script type="module" src="./js/turnos.js"></script>
+  <script>
+    if (protegerRuta()) {
+      document.write('<script type="module" src="./js/turnos.js"><\/script>');
+    }
+  </script>
+  <script type="module" src="./js/navbar.js"></script>
 
 </body>
 </html>

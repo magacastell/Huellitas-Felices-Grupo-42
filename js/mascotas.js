@@ -2,7 +2,8 @@ import {
   obtenerRegistros,
   guardarRegistros,
   generarId,
-  buscarRegistroUnico
+  buscarRegistroUnico,
+  puedeEliminarEntidad
 } from "./storage.js";
 
 let mascotas = obtenerRegistros("mascotas");
@@ -186,6 +187,7 @@ elementoModalEditar.addEventListener("hidden.bs.modal", function () {
 
 function eliminarMascota(idMascota) {
   if (!buscarRegistroUnico(mascotas, "idMascota", idMascota)) return;
+  if (!puedeEliminarEntidad("idMascota", idMascota)) return;
   const actualizadas = mascotas.filter(function (mascota) {
     return mascota.idMascota !== idMascota;
   });

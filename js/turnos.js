@@ -212,6 +212,11 @@ function guardarTurnos(nuevosTurnos) {
 
 function registrarTurno(evento) {
     evento.preventDefault();
+    if (!protegerRuta()) return;
+
+    // Revalidar entidades por si cambiaron desde otra pestaña.
+    mascotas = obtenerRegistros("mascotas");
+    veterinarios = obtenerRegistros("veterinarios");
 
     const idMascota = selectorMascota.value;
     const idVeterinario = selectorVeterinario.value;
@@ -302,6 +307,7 @@ function solicitarEliminacion(idTurno) {
 }
 
 function eliminarTurno() {
+    if (!protegerRuta()) return;
     if (idTurnoEliminar === null) {
         return;
     }
