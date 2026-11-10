@@ -1241,7 +1241,21 @@ footer a:hover {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(118, 85, 143, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* ---------- ADMINISTRACIÓN: MASCOTAS Y VETERINARIOS ---------- */
+/* ---------- ADMINISTRACIÓN ---------- */
+
+.admin-page .admin-footer {
+  padding: 1.25rem 0;
+}
+
+.admin-page .admin-footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem 1.5rem;
+  font-size: .875rem;
+  text-align: center;
+}
 
 .admin-page .admin-main {
   padding-top: 2.5rem;
@@ -1321,7 +1335,8 @@ footer a:hover {
   max-width: 18rem;
 }
 
-.admin-page .admin-table .admin-actions {
+.admin-page .admin-table .admin-actions,
+.admin-page #tablaTurnos td:last-child {
   min-width: 11.5rem;
   white-space: nowrap;
 }
@@ -1331,7 +1346,8 @@ footer a:hover {
   gap: .5rem;
 }
 
-.admin-page .admin-actions .btn {
+.admin-page .admin-actions .btn,
+.admin-page #tablaTurnos td:last-child .btn {
   padding: .5rem .75rem;
   font-size: .875rem;
   min-height: 44px;
@@ -1362,16 +1378,22 @@ footer a:hover {
   --bs-btn-active-bg: #ccecea;
 }
 
-.admin-page .admin-btn-delete {
+.admin-page .admin-btn-delete,
+.admin-page #tablaTurnos .btn-danger {
   --bs-btn-color: #79445e;
   --bs-btn-bg: #f6eaf0;
   --bs-btn-hover-color: #65364e;
   --bs-btn-hover-bg: #ecd5e0;
   --bs-btn-active-bg: #ecd5e0;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-active-color: #65364e;
 }
 
 .admin-page .admin-btn-primary:focus-visible, .admin-page .admin-btn-neutral:focus-visible,
-.admin-page .admin-btn-edit:focus-visible, .admin-page .admin-btn-delete:focus-visible {
+.admin-page .admin-btn-edit:focus-visible, .admin-page .admin-btn-delete:focus-visible,
+.admin-page #tablaTurnos .btn-danger:focus-visible {
   outline: 3px solid var(--color-lila);
   outline-offset: 2px;
 }
@@ -1390,6 +1412,10 @@ footer a:hover {
 }
 
 @media (max-width: 576px) {
+  .admin-page .admin-footer-content {
+    flex-direction: column;
+  }
+
   .admin-page .admin-main {
     padding-top: 1.5rem;
   }

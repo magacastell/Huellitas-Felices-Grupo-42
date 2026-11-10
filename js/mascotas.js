@@ -15,6 +15,42 @@ const formularioEditarMascota = document.getElementById("formularioEditarMascota
 const elementoModalEditar = document.getElementById("modalEditarMascota");
 const modalEditarMascota = new bootstrap.Modal(elementoModalEditar);
 
+const elementoModalEliminar = document.getElementById("modalEliminarMascota");
+const modalEliminarMascota = new bootstrap.Modal(elementoModalEliminar);
+const mensajeEliminarMascota = document.getElementById("mensajeEliminarMascota");
+const botonConfirmarEliminarMascota = document.getElementById("btnConfirmarEliminarMascota");
+let idMascotaEliminar = null;
+let botonOrigenEliminar = null;
+
+function solicitarEliminacionMascota(idMascota, boton) {
+  const mascota = buscarRegistroUnico(mascotas, "idMascota", idMascota);
+  if (!mascota) return;
+  idMascotaEliminar = idMascota;
+  botonOrigenEliminar = boton;
+  mensajeEliminarMascota.textContent = `¿Estás seguro de que querés eliminar a "${mascota.nombreMascota}"?`;
+  botonConfirmarEliminarMascota.disabled = false;
+  modalEliminarMascota.show();
+}
+
+botonConfirmarEliminarMascota.addEventListener("click", () => {
+  if (idMascotaEliminar === null || botonConfirmarEliminarMascota.disabled) return;
+  if (eliminarMascota(idMascotaEliminar)) {
+    botonConfirmarEliminarMascota.disabled = true;
+    modalEliminarMascota.hide();
+  }
+});
+
+elementoModalEliminar.addEventListener("shown.bs.modal", () => {
+  document.getElementById("btnCancelarEliminarMascota").focus();
+});
+elementoModalEliminar.addEventListener("hidden.bs.modal", () => {
+  idMascotaEliminar = null;
+  const destino = botonOrigenEliminar?.isConnected
+    ? botonOrigenEliminar : document.getElementById("nombreMascota");
+  botonOrigenEliminar = null;
+  destino.focus();
+});
+
 // Comparte las mismas validaciones entre alta y edición.
 function capturarYValidarMascota(editando = false) {
   const campos = editando
@@ -115,13 +151,7 @@ function mostrarMascotas() {
     botonEliminar.className = "btn btn-sm admin-btn-delete btn-eliminar";
     botonEliminar.textContent = "Eliminar";
     botonEliminar.addEventListener("click", function () {
-      const confirmar = confirm(
-        `¿Estás seguro de que querés eliminar a ${mascota.nombreMascota}?`
-      );
-
-      if (confirmar) {
-        eliminarMascota(mascota.idMascota);
-      }
+      solicitarEliminacionMascota(mascota.idMascota, botonEliminar);
     });
     acciones.appendChild(botonEditar);
     acciones.appendChild(document.createTextNode(" "));
@@ -195,5 +225,6 @@ function eliminarMascota(idMascota) {
   if (!guardarRegistros("mascotas", actualizadas)) return;
   mascotas = actualizadas;
   mostrarMascotas();
+  return true;
 }
 mostrarMascotas();

@@ -24,6 +24,42 @@ const modalEditarVeterinario = new bootstrap.Modal(elementoModalEditarVeterinari
 const tablaVeterinarios = document.getElementById("tablaVeterinarios");
 const totalVeterinarios = document.getElementById("totalVeterinarios");
 
+const elementoModalEliminarVeterinario = document.getElementById("modalEliminarVeterinario");
+const modalEliminarVeterinario = new bootstrap.Modal(elementoModalEliminarVeterinario);
+const mensajeEliminarVeterinario = document.getElementById("mensajeEliminarVeterinario");
+const botonConfirmarEliminarVeterinario = document.getElementById("btnConfirmarEliminarVeterinario");
+let idVeterinarioEliminar = null;
+let botonOrigenEliminar = null;
+
+function solicitarEliminacionVeterinario(idVeterinario, boton) {
+  const veterinario = buscarRegistroUnico(obtenerVeterinarios(), "idVeterinario", idVeterinario);
+  if (!veterinario) return;
+  idVeterinarioEliminar = idVeterinario;
+  botonOrigenEliminar = boton;
+  mensajeEliminarVeterinario.textContent = `¿Estás seguro de que querés eliminar a "${veterinario.nombre}" (Matrícula: ${veterinario.matricula})?`;
+  botonConfirmarEliminarVeterinario.disabled = false;
+  modalEliminarVeterinario.show();
+}
+
+botonConfirmarEliminarVeterinario.addEventListener("click", () => {
+  if (idVeterinarioEliminar === null || botonConfirmarEliminarVeterinario.disabled) return;
+  if (eliminarVeterinario(idVeterinarioEliminar)) {
+    botonConfirmarEliminarVeterinario.disabled = true;
+    modalEliminarVeterinario.hide();
+  }
+});
+
+elementoModalEliminarVeterinario.addEventListener("shown.bs.modal", () => {
+  document.getElementById("btnCancelarEliminarVeterinario").focus();
+});
+elementoModalEliminarVeterinario.addEventListener("hidden.bs.modal", () => {
+  idVeterinarioEliminar = null;
+  const destino = botonOrigenEliminar?.isConnected
+    ? botonOrigenEliminar : document.getElementById("nombre");
+  botonOrigenEliminar = null;
+  destino.focus();
+});
+
 const formateadorMoneda = new Intl.NumberFormat("es-AR", {
   style: "currency",
   currency: "ARS",
@@ -139,7 +175,7 @@ function renderizarTabla() {
     btnEliminar.type = "button";
     btnEliminar.className = "btn btn-sm admin-btn-delete";
     btnEliminar.textContent = "Eliminar";
-    btnEliminar.addEventListener("click", () => eliminarVeterinario(vet.idVeterinario));
+    btnEliminar.addEventListener("click", () => solicitarEliminacionVeterinario(vet.idVeterinario, btnEliminar));
 
     contenedorBotones.appendChild(btnEditar);
     contenedorBotones.appendChild(btnEliminar);
@@ -179,14 +215,6 @@ function eliminarVeterinario(idVeterinario) {
     return;
   }
 
-  const confirmado = confirm(
-    `¿Estás seguro de que deseás eliminar a "${veterinario.nombre}" (Matrícula: ${veterinario.matricula})?`
-  );
-
-  if (!confirmado) {
-    return;
-  }
-
   if (!puedeEliminarEntidad("idVeterinario", idVeterinario)) return;
   const nuevosRegistros = veterinarios.filter((vet) => vet.idVeterinario !== idVeterinario);
   if (!guardarRegistros(CLAVE_VETERINARIOS, nuevosRegistros)) return;
@@ -196,6 +224,7 @@ function eliminarVeterinario(idVeterinario) {
   }
 
   renderizarTabla();
+  return true;
 }
 
 formVeterinario.addEventListener("submit", (evento) => {

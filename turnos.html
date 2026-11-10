@@ -17,193 +17,144 @@
   >
 
   <link rel="stylesheet" href="./css/styles.css">
-
-  <style>
-    .turnos-section {
-      padding: 3rem 0 4rem;
-    }
-
-    .turnos-card {
-      background: #fff;
-      border: 1px solid #e9dff0;
-      border-radius: 1rem;
-      box-shadow: 0 8px 24px rgba(65, 45, 79, 0.05);
-    }
-
-    .turnos-heading {
-      color: #79558d;
-    }
-
-    .turnos-btn {
-      background-color: #79558d;
-      border-color: #79558d;
-      color: white;
-    }
-
-    .turnos-btn:hover,
-    .turnos-btn:focus {
-      background-color: #654675;
-      border-color: #654675;
-      color: white;
-    }
-
-    .turnos-counter {
-      color: #269fa3;
-      font-weight: 700;
-    }
-  </style>
 </head>
 
-<body>
+<body class="admin-page">
 
   <!-- ENCABEZADO -->
   <header>
+      <div class="barra-superior">
+        <div class="container barra-superior-container">
+          <div class="barra-info">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path
+                  d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+              </svg>
+              Av. Los Ceibos 1420, Concordia
+            </span>
 
-    <div
-      class="py-2 text-center"
-      style="background-color:#caa8db; color:#175f65;"
-    >
-      <div
-        class="container d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between gap-2 small"
-      >
-        <span>Av. Los Ceibos 1420, Concordia</span>
-        <span>Lun a Vie: 08:00 - 20:00 hs | Sáb: 09:00 - 13:00 hs</span>
-        <span>+54 9 345 612-4700</span>
-      </div>
-    </div>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-clock-fill" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+              </svg>
+              Lun a Vie: 08:00 - 20:00 hs | Sáb: 09:00 - 13:00 hs
+            </span>
+          </div>
 
-    <!-- NAVEGACIÓN -->
-    <nav
-      class="navbar navbar-expand-lg bg-white border-bottom"
-      aria-label="Navegación principal"
-    >
-      <div class="container py-2">
-
-        <a class="navbar-brand" href="./index.html">
-          <span class="d-block" style="color:#79558d;">
-            Huellitas Felices
-          </span>
-          <span
-            class="d-block small"
-            style="color:#12747b; font-size:.68rem; letter-spacing:.04em;"
-          >
-            VETERINARIA &amp; BIENESTAR
-          </span>
-        </a>
-
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#menuPrincipal"
-          aria-controls="menuPrincipal"
-          aria-expanded="false"
-          aria-label="Abrir menú"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menuPrincipal">
-
-          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-
-            <li class="nav-item">
-              <a class="nav-link" href="./index.html">Inicio</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="./institucional.html">Nosotros</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="./contacto.html">Contacto</a>
-            </li>
-
-            <li class="nav-item dropdown d-none" data-nav-sesion>
-
-              <a
-                class="nav-link dropdown-toggle active"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                aria-current="page"
-              >
-                Administración
-              </a>
-
-              <ul class="dropdown-menu">
-
-                <li>
-                  <a class="dropdown-item" href="./mascotas.html">
-                    Mascotas
-                  </a>
-                </li>
-
-                <li>
-                  <a class="dropdown-item" href="./veterinarios.html">
-                    Veterinarios
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    class="dropdown-item active"
-                    aria-current="page"
-                    href="./turnos.html"
-                  >
-                    Turnos
-                  </a>
-                </li>
-
-                <li>
-                  <a class="dropdown-item" href="./historia-clinica.html">
-                    Historia Clínica
-                  </a>
-                </li>
-
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="./contacto.html#formulario">
-                Pedir turno
-              </a>
-            </li>
-
-            <li class="nav-item" data-nav-publico>
-              <a class="nav-link" href="./login.html">
-                Iniciar sesión
-              </a>
-            </li>
-            <li class="nav-item d-none" data-nav-sesion>
-              <button type="button" class="nav-link" data-cerrar-sesion>Cerrar sesión</button>
-            </li>
-
-          </ul>
+          <div class="barra-telefono">
+            <a href="tel:+543456124700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 0 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+              </svg>
+              +54 9 345 612-4700
+            </a>
+          </div>
         </div>
       </div>
-    </nav>
-  </header>
+
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a href="./index.html" class="navbar-brand enlace-logo">
+            <div class="logo">
+              <img src="./favicon.ico" alt="Logo de Huellitas Felices">
+
+              <div class="texto-logo">
+                <h1>Huellitas Felices</h1>
+                <p>VETERINARIA & BIENESTAR</p>
+              </div>
+            </div>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarHuellitas" aria-controls="navbarHuellitas" aria-expanded="false"
+            aria-label="Abrir menú de navegación">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarHuellitas">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+              <li class="nav-item">
+                <a href="./index.html" class="nav-link">
+                  Inicio
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="./institucional.html" class="nav-link">
+                  Nosotros
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="./contacto.html" class="nav-link">
+                  Contacto
+                </a>
+              </li>
+
+              <li class="nav-item dropdown d-none" data-nav-sesion>
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownAdministracion" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Administración
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="dropdownAdministracion">
+                  <li>
+                    <a class="dropdown-item" href="./mascotas.html">
+                      Mascotas
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="./veterinarios.html">
+                      Veterinarios
+                    </a>
+                  </li>
+                  <li><a class="dropdown-item active" href="./turnos.html" aria-current="page">Turnos</a></li>
+                  <li><a class="dropdown-item" href="./historia-clinica.html">Historia Clínica</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="./contacto.html#formulario" class="nav-link btn-prueba">
+                  Pedir turno
+                </a>
+              </li>
+              <li class="nav-item" data-nav-publico>
+                <a href="./login.html" class="nav-link">Iniciar sesión</a>
+              </li>
+              <li class="nav-item d-none" data-nav-sesion>
+                <button type="button" class="nav-link" data-cerrar-sesion>Cerrar sesión</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <main class="admin-page turnos-section">
+  <main class="container admin-main">
 
-    <div class="container">
-
-      <div class="mb-4">
-        <h1 class="turnos-heading mb-2">Gestión de Turnos</h1>
+      <section class="admin-intro">
+        <h1>Gestión de Turnos</h1>
 
         <p class="text-secondary mb-0">
           Registrá y consultá los turnos de atención veterinaria.
         </p>
-      </div>
+      </section>
 
       <!-- FORMULARIO -->
       <section
-        class="turnos-card admin-form-card p-3 p-md-4 mb-4"
+        class="admin-section"
         aria-labelledby="tituloFormularioTurno"
       >
+        <div class="card admin-form-card">
 
         <h2 class="h4 mb-4" id="tituloFormularioTurno">
           Registrar nuevo turno
@@ -315,20 +266,21 @@
 
           </div>
 
-          <div class="d-flex justify-content-end mt-4">
+          <div class="admin-form-actions mt-4">
 
-            <button class="btn turnos-btn px-4" type="submit">
+            <button class="btn admin-btn-primary" type="submit">
               Registrar turno
             </button>
 
           </div>
 
         </form>
+        </div>
       </section>
 
       <!-- LISTADO DE TURNOS -->
       <section
-        class="turnos-card p-3 p-md-4"
+        class="admin-section"
         aria-labelledby="tituloListadoTurnos"
       >
 
@@ -340,21 +292,21 @@
             Turnos registrados
           </h2>
 
-          <div class="admin-counter" aria-live="polite">
+          <div class="badge admin-counter" aria-live="polite">
             Total de turnos:
-            <span class="turnos-counter" id="contadorTurnos">0</span>
+            <span id="contadorTurnos">0</span>
           </div>
 
         </div>
 
-        <div class="table-responsive">
+        <div class="table-responsive admin-table-wrap" role="region" aria-label="Tabla de turnos; desplazamiento horizontal" tabindex="0">
 
           <table
-            class="table table-hover align-middle admin-table"
+            class="table table-striped table-hover align-middle admin-table"
             id="tablaTurnos"
           >
 
-            <thead>
+            <thead class="table-light">
               <tr>
                 <th scope="col">Mascota</th>
                 <th scope="col">Veterinario</th>
@@ -381,8 +333,6 @@
         </p>
 
       </section>
-
-    </div>
   </main>
 
   <!-- MODAL DE ELIMINACIÓN -->
@@ -421,7 +371,7 @@
 
           <button
             type="button"
-            class="btn btn-outline-secondary"
+            class="btn admin-btn-neutral"
             data-bs-dismiss="modal"
           >
             Cancelar
@@ -429,7 +379,7 @@
 
           <button
             type="button"
-            class="btn btn-danger"
+            class="btn admin-btn-delete"
             id="btnConfirmarEliminarTurno"
           >
             Confirmar eliminación
@@ -442,29 +392,13 @@
   </div>
 
   <!-- FOOTER -->
-  <footer
-    class="py-4 text-white"
-    style="background-color:#342b3e;"
-  >
-
-    <div class="container d-flex flex-wrap justify-content-between gap-3">
-
-      <div>
+  <footer class="admin-footer">
+      <div class="container admin-footer-content">
         <strong>Huellitas Felices</strong>
-        <div class="small">Veterinaria &amp; bienestar</div>
+        <span>Panel de Administración</span>
+        <span>&copy; 2026 Huellitas Felices</span>
       </div>
-
-      <div class="small">
-        Av. Los Ceibos 1420, Concordia
-      </div>
-
-      <div class="small">
-        Contacto: +54 9 345 612-4700
-      </div>
-
-    </div>
-
-  </footer>
+    </footer>
 
   <!-- BOOTSTRAP -->
   <script
